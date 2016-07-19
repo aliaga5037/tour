@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         DB::table('admins')->insert([
 
           'adminName'=>'Miti',
@@ -19,5 +19,13 @@ class DatabaseSeeder extends Seeder
           'password'=>Hash::make('123456'),
 
           ]);
+
+            DB::table('companies')->insert([
+
+                'founderName'=>'sdasd',
+                'email'=>'kia@box.az',
+                'password'=>Hash::make('123456'),
+            ]);
+
     }
 }

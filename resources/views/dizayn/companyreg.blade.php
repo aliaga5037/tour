@@ -41,7 +41,8 @@ label{
 </style>
 <div style="margin-left:35%;" class="">
 
-  <form class="" action="" method="post">
+  <form class="" action="{{ url('/company/company') }}" method="post">
+      {{ csrf_field() }}
         <label style="color:black;"for="ad">Rəhbər Adı</label>
         <input type="text" id="ad"  name="name" value="">
         <label style="color:black;"for="soyad">Rəhbər Soyadı</label>

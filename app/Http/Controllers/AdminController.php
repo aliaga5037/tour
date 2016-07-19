@@ -42,6 +42,7 @@ class AdminController extends Controller
         ]);
             if($validator->fails() )
             {
+              
               return redirect('/admin/adminlog');
 
             }

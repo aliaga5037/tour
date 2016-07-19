@@ -11,13 +11,35 @@ Route::group(['middleware'=>'auth:admin'],function(){
 });
 
 
+
+
+
+
   Route::get('/admin/adminlog','AdminController@login');
   Route::post('/admin/adminlog','AdminController@postLogin');
   Route::get('/admin/adminlogout','AdminController@logout');
 
 });
 
-Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware'=>'company'],function(){
+
+Route::group(['middleware'=>'auth:company'],function(){
+
+Route::get('/company/company', 'CompanyController@index');
+
+  });
+
+
+
+
+  Route::get('/companylog/login','CompanyController@login');
+  Route::post('/companylog/login','CompanyController@postLogin');
+  Route::get('/companylog/logout','CompanyController@logout');
+
+});
+
+
 
 
 
@@ -41,6 +63,8 @@ Route::get('/userreg', function () {
 Route::get('/companyreg', function () {
     return view('dizayn.companyreg');
 });
+
+
 
 
 Route::get('/elaqe', function () {
