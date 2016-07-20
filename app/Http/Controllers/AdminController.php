@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use App\Company;
+use Mail;
 
 class AdminController extends Controller
 {
@@ -66,6 +68,41 @@ class AdminController extends Controller
     {
           auth()->guard('admin')->logout();
           return redirect('admin/adminlog');
+
+    }
+
+
+    public function companyList(){
+
+      $companyList = Company::paginate(10);
+
+
+      return view('admin.companylist',compact('companyList'));
+
+    }
+
+
+    public function companyListPost(Request $request,$id){
+
+
+
+
+            $data = $request->input();
+            $sirket = Company::find($id);
+            $sirketMail = $sirket->email;
+
+            $sirket ->onoff = 1;
+
+            $sirket ->save();
+              Mail::send('admin.admin',[],function($mail) use($sirketMail) {
+
+                $mail->to($sirketMail)->subject('kelledi qaqan');
+              });
+
+
+
+
+            return redirect('admin/companylist');
 
     }
 }

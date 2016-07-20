@@ -15,6 +15,8 @@ class Company extends Authenticatable
       'founderName','founderSurname', 'companyName','companyDate','companyAbout','email','password',
   ];
 
+  
+
   /**
    * The attributes that should be hidden for arrays.
    *
