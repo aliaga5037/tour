@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('companyName');
             $table->date('companyDate');
             $table->text('companyAbout');
+            $table->boolean('onoff')->default(0);
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();

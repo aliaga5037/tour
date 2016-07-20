@@ -35,8 +35,10 @@ Route::get('/company', 'CompanyController@index');
 
 
 
-
-  Route::get('/companylog','CompanyController@login');
+  Route::get('/company', function () {
+    return view('dizayn.companypage');
+});
+  
   Route::post('/companylog','CompanyController@postLogin');
   Route::get('/companylogout','CompanyController@logout');
 

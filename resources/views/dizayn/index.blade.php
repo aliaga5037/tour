@@ -1,5 +1,8 @@
 @extends('layouts.dizayn')
 @section('basliq');
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+				<a href="/login" class="login">Giriş</a>
+				@endif
 <!-- Title and navigation panel -->
 
 

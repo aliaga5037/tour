@@ -30,7 +30,7 @@ class CompanyController extends Controller
                 return view('dizayn.index');
       }
 
-      return view('auth.complog');
+      return view('/login');
 
 
 
@@ -53,7 +53,7 @@ class CompanyController extends Controller
             if($validator->fails() )
             {
 
-              return redirect('/companylog');
+              return redirect('/login');
 
             }
 
@@ -67,17 +67,17 @@ class CompanyController extends Controller
               {
 
 
-                return view('dizayn.companypage');
+                return redirect('/');
 
               }else{
 
-                  return redirect('/companylog');
+                  return redirect('/login');
 
               }
 
             }else{
 
-                return redirect('/companylog');
+                return redirect('/login');
             }
 
 
@@ -89,7 +89,7 @@ class CompanyController extends Controller
     public function logout ()
     {
           auth()->guard('company')->logout();
-          return redirect('/');
+          return back();
 
     }
 
