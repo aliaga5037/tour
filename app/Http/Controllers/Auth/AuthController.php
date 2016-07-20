@@ -71,7 +71,7 @@ class AuthController extends Controller
     }
 
     public function getlogin(){
-      if(auth()->guard('')->user() or auth()->guard('company')->user() ){
+      if(auth()->guard('')->user() || auth()->guard('company')->user() ){
 
                 return view('dizayn.index');
       }

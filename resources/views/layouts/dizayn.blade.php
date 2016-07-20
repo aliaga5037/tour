@@ -24,14 +24,14 @@
 	<script src="/dizayn/js/modernizr-2.0.min.js"></script>
 
 	<!-- Load JavaScript -->
-	<script src="/dizayn/js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<script src="/dizayn/js/jquery.min.js"></script>{{-- 
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script> --}}
 	<script src="/dizayn/js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="/dizayn/js/script.js"></script>
 	<script src="/dizayn/js/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/dizayn/js/datepicker.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
+	@yield('head')
 </head>
 <body>
 
@@ -65,14 +65,28 @@
 						</ul>
 					</li> -->
 					<li>
+						<a href="/elaqe">Əlaqə</a>
+					</li>
+					<li>
+						@if (auth()->guard('company')->guest() && Auth::guest())
 						<a href="#">Qeydiyyat</a>
 						<ul>
 							<li><a href="/userreg">Bizdən Alın</a></li>
 							<li><a href="/companyreg">Bizimlə İşlə</a></li>
 						</ul>
-					</li>
-					<li>
-						<a href="/elaqe">Əlaqə</a>
+						@elseif(auth()->guard('company')->user() || auth()->guard('')->user())
+						<a href="#">Məlumat</a>
+						<ul>
+							<li><a href="#">Profil</a></li>
+							<li><a href="#">Mənim Turlarım</a></li>
+							@if (auth()->guard('company')->user())
+								<li><a href="/companylogout">Çıxış</a></li>
+							@else
+							<li><a href="/logout">Çıxış</a></li>
+							@endif
+							
+						</ul>
+						@endif
 					</li>
 				</ul>
 
@@ -81,11 +95,13 @@
 					<input name="search" type="text" placeholder="Axtarış..." />
 					<input type="submit" />
 				</form>
+				
 			</nav>
 
 		</div>
 
 	</div>
+	
 
   @yield('basliq');
 
