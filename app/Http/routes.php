@@ -1,13 +1,16 @@
 <?php
 
 
+
+
 Route::group(['middleware'=>'admin'],function(){
 
 
 Route::group(['middleware'=>'auth:admin'],function(){
 
   Route::get('/admin/admin','AdminController@index');
-
+  Route::get('/admin/companylist','AdminController@companyList');
+  Route::put('/admin/companylist/{id}','AdminController@companyListPost');
 });
 
 
