@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function login()
     {
-      if(auth()->guard('admin')->user() or auth()->guard('')->user() ){
+      if(auth()->guard('admin')->user() or auth()->guard('')->user() or auth()->guard('company')->user() ){
 
             return view('dizayn.index');
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
         ]);
             if($validator->fails() )
             {
-              
+
               return redirect('/admin/adminlog');
 
             }

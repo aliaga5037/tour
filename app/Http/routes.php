@@ -26,21 +26,26 @@ Route::group(['middleware'=>'company'],function(){
 
 Route::group(['middleware'=>'auth:company'],function(){
 
-Route::get('/company/company', 'CompanyController@index');
+Route::get('/company', 'CompanyController@index');
 
   });
 
 
 
 
-  Route::get('/companylog/login','CompanyController@login');
-  Route::post('/companylog/login','CompanyController@postLogin');
-  Route::get('/companylog/logout','CompanyController@logout');
+  Route::get('/companylog','CompanyController@login');
+  Route::post('/companylog','CompanyController@postLogin');
+  Route::get('/companylogout','CompanyController@logout');
 
 });
 
 
+Route::post('/companyRegister','CompanyController@addComp');
+Route::get('/companyRegister', function () {
+    return view('dizayn.companyreg');
+});
 
+  Route::get('/home','HomeController@index');
 
 
 Route::get('/', function () {

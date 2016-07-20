@@ -39,28 +39,29 @@ label{
 
 
 </style>
+
 <div style="margin-left:35%;" class="">
 
-  <form class="" action="{{ url('/company/company') }}" method="post">
+  <form class="" action="{{ url('/companyRegister') }}" method="post">
       {{ csrf_field() }}
         <label style="color:black;"for="ad">Rəhbər Adı</label>
-        <input type="text" id="ad"  name="name" value="">
+        <input type="text" id="ad"  name="founderName" value="">
         <label style="color:black;"for="soyad">Rəhbər Soyadı</label>
-        <input type="text" id="soyad"  name="name" value="">
+        <input type="text" id="soyad"  name="founderSurname" value="">
         <label style="color:black;"for="sirket">Şirkət Adı</label>
-        <input type="text" id="sirket"  name="name" value="">
+        <input type="text" id="sirket"  name="companyName" value="">
 
 
         <label style="color:black;"for="sirketil">Şirkətin yarandığı il</label>
-        <input type="date" id="sirketil"  name="name" value="">
+        <input type="date" id="sirketil"  name="companyDate" value="">
 
         <label style="color:black;"for="sirketab">Şirkətin haqqında</label>
-        <textarea name="name" id="sirketab" ></textarea>
+        <textarea name="companyAbout" id="sirketab" ></textarea>
 
         <label style="color:black;"for="email">Email</label>
-        <input type="email" id="email"  name="name" value="">
+        <input type="email" id="email"  name="email" value="">
         <label style="color:black;"for="sifre">Şifrə</label>
-        <input type="email" id="sifre"  name="name" value="">
+        <input type="password" id="sifre"  name="password" value="">
         <input style="margin-top:50px; " type="submit" name="name" value="Qeydiyyatdan Keç">
 
   </form>

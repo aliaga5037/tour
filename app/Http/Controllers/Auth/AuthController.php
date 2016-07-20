@@ -69,4 +69,18 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function getlogin(){
+      if(auth()->guard('')->user() or auth()->guard('company')->user() ){
+
+                return view('dizayn.index');
+      }
+
+      return view('/login');
+
+
+
+    }
+
+
 }
