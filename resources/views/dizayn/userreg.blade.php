@@ -1,8 +1,12 @@
 @extends('layouts.dizayn')
-@section('basliq');
+@section('basliq')
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+                <a href="/login" class="login">Giriş</a>
+                @endif
 <h2>Bizdən Alın</h2>
 @endsection
 @section('content')
+
 <style media="screen">
 
 label{
@@ -30,6 +34,7 @@ label{
 
 
 </style>
+
 <div style="margin-left:35%;" class="">
 <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
     {{ csrf_field() }}
@@ -99,20 +104,5 @@ label{
     </div>
 </form>
 </div> 
-<!-- <div style="margin-left:35%;" class="">
 
-  <form class="" action="" method="post">
-        <label style="color:black;"for="ad">Ad</label>
-        <input type="text" id="ad"  name="name" value="">
-        <label style="color:black;"for="soyad">Soyad</label>
-        <input type="text" id="soyad"  name="name" value="">
-        <label style="color:black;"for="email">Email</label>
-        <input type="email" id="email"  name="name" value="">
-        <label style="color:black;"for="sifre">Şifrə</label>
-        <input type="email" id="sifre"  name="name" value="">
-        <input style="margin-top:50px; " type="submit" name="name" value="Qeydiyyatdan Keç">
-
-  </form>
-
-</div> -->
 @endsection

@@ -30,8 +30,9 @@ Route::group(['middleware'=>'company'],function(){
 Route::group(['middleware'=>'auth:company'],function(){
 
 Route::get('/company', 'CompanyController@index');
+Route::resource('/{id}/tours', 'TourController');
 
-  });
+});
 
 
 
