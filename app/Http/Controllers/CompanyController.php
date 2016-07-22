@@ -120,9 +120,9 @@ class CompanyController extends Controller
         ]);
 
 
-      return  Redirect::to('companyRegister')->with('message', 'Siz qeydiyyatdan keçdiniz,adminstrasiya tərəfindən yoxlanışdan sonra sizə bildiri. gelecek');
+      return  Redirect::to('/companyreg')->with('message', 'Siz qeydiyyatdan keçdiniz,adminstrasiya tərəfindən yoxlanışdan sonra sizə bildiri. gelecek');
     }
 
 
-  
+
 }
