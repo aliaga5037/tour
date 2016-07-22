@@ -1,6 +1,10 @@
 @extends('layouts.dizayn')
-@section('basliq');
+@section('basliq')
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+                <a href="/login" class="login">Giriş</a>
+                @endif
 <h2>Bizimlə İşlə</h2>
+
 @endsection
 @section('content')
 <style media="screen">
@@ -53,7 +57,7 @@ label{
 
 
         <label style="color:black;" for="sirketil">Şirkətin yarandığı il</label>
-        <input type="date" id="sirketil"  name="companyDate" value="">
+        <input type="text" name="companyDate" class="date" value="" />
 
         <label style="color:black;" for="sirketab">Şirkətin haqqında</label>
         <textarea name="companyAbout" id="sirketab" ></textarea>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Tour;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Company extends Authenticatable
@@ -25,4 +26,9 @@ class Company extends Authenticatable
   protected $hidden = [
       'password', 'remember_token',
   ];
+
+  public function tours()
+    {
+      return $this->hasMany(Tour::class);
+    }
 }

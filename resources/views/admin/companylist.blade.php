@@ -36,11 +36,11 @@
             <td>{{ $company->companyDate }}</td>
             <td>{{ $company->companyAbout }}</td>
               <td>@if($company->onoff == 0)
-                <form  action="/admin/companylist/{{ $company->id }}" method="post">
+                <form  action="/admin/companylist/{{ $company->id }}" >
                   {{ csrf_field() }}
                   <input type="hidden" name="_method" value="PUT" >
 
-                <input type="submit" value="Gözləmə" class="btn btn-danger">
+                <button type="submit" value="Gözləmə" class="btn btn-danger"></button>
               </form>
               @endif</td>
             <td>@if($company->onoff == 1) <span class="label label-success">Təsdiqlənmiş</span> @endif</td>
