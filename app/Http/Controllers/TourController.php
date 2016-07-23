@@ -112,9 +112,9 @@ class TourController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id,$tourId)
-    {
-
-        $tour = Tour::findOrFail($tourId);
+    { 
+       
+       $tour = Tour::findOrFail($tourId);
         $tour->update($request->all());
         return redirect("/$id/tours");
     }

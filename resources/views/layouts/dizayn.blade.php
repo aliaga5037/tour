@@ -14,7 +14,8 @@
 	@yield('head')
 	<link rel="stylesheet" href="/dizayn/css/style.css">
 
-<link rel="stylesheet" href="/dizayn/fancybox/jquery.fancybox-1.3.4.css">
+	<link rel="stylesheet" href="/dizayn/fancybox/jquery.fancybox-1.3.4.css">
+
 	<link rel="stylesheet" href="/dizayn/css/smoothness/jquery-ui-1.8.16.custom.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 

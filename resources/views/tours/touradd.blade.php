@@ -31,16 +31,16 @@ width: 50%;
 }
 </style>
 <div style="margin-left:35%;" class="">
-	<form class="" action="{{ url("$id/tours") }}" method="post">
+	<form class="" action="{{ url("$id/tours") }}" method="post" >
 		{{ csrf_field() }}
 		<label style="color:black;" for="ad">Turun adı</label>
 		<input type="text" id="ad"  name="tourName" value="{{ old('tourName') }}" required>
 
 		<label style="color:black;" for="start">Turun başlama tarixi</label>
-		<input type="date" id="start"  name="start" value="{{ old('start') }}" required>
+		<input type="date" id="start"  	name="start" value="{{ old('start') }}" required>
 
 		<label style="color:black;" for="end">Turun bitmə tarixi</label>
-		<input type="date" id="end"  name="end" value="{{ old('end') }}" required>
+		<input type="date" id="end"  	name="end" value="{{ old('end') }}" required>
 
 		<label style="color:black;" for="country">Ölkə</label>
 		<input type="text" id="country"  name="country" value="{{ old('country') }}" required>
@@ -51,10 +51,25 @@ width: 50%;
 		<label style="color:black;" for="flyPoint">Uçuş nöqtəsi</label>
 		<input type="text" id="flyPoint"  name="flyPoint" value="{{ old('flyPoint') }}" required>
 
+		<label style="color:black;" for="hotel">Hotel</label>
+		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
+		
+		
+
 		<label style="color:black;" for="about">Tur haqqında</label>
 		<textarea type="text" id="about"  name="about" value="{{ old('about') }}" required></textarea>
 
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>
 </div>
+<<<<<<< HEAD
+
+<form method="post" action="nieuw" enctype="multipart/form-data">
+    <input type="file" class="form-control" name="images" multiple>
+</form>
+
+
 @stop
+=======
+@stop
+>>>>>>> upstream/master
