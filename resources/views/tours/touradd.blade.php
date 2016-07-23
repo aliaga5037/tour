@@ -47,7 +47,7 @@ width: 50%;
 
 		<label style="color:black;" for="price">Turun qiyməti</label>
 		<input type="number" id="price"  name="price" value="{{ old('price') }}" required>
-		
+
 		<label style="color:black;" for="flyPoint">Uçuş nöqtəsi</label>
 		<input type="text" id="flyPoint"  name="flyPoint" value="{{ old('flyPoint') }}" required>
 
@@ -62,6 +62,7 @@ width: 50%;
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>
 </div>
+<<<<<<< HEAD
 
 <form method="post" action="nieuw" enctype="multipart/form-data">
     <input type="file" class="form-control" name="images" multiple>
@@ -69,3 +70,6 @@ width: 50%;
 
 
 @stop
+=======
+@stop
+>>>>>>> upstream/master

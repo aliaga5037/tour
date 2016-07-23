@@ -13,7 +13,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        //  View::composer('*', function ($view) {
+        //       $tourlink = Tour::where('latin', $link)->first();
+         //
+        //    $view->with('tourlink', $tourlink);
+         //
+        //   });
     }
 
     /**

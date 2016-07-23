@@ -14,11 +14,11 @@
 	@yield('head')
 	<link rel="stylesheet" href="/dizayn/css/style.css">
 
-
 	<link rel="stylesheet" href="/dizayn/fancybox/jquery.fancybox-1.3.4.css">
+
 	<link rel="stylesheet" href="/dizayn/css/smoothness/jquery-ui-1.8.16.custom.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+
 
 
 	<!-- Page icon -->
@@ -35,7 +35,7 @@
 	<script src="/dizayn/js/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	
+
 </head>
 <body>
 
@@ -85,14 +85,14 @@
 							@if (auth()->guard('company')->user())
 							<li><a href="/{{auth()->guard('company')->user()->id}}/tours">Mənim Turlarım</a></li>
 							@elseif(Auth::user())
-							<li><a href="/{{Auth::user()->id}}/tours">Mənim Turlarım</a></li>
+							<li><a href="/{{Auth::user()->id}}/tours">Aldığım Turlar</a></li>
 							@endif
 							@if (auth()->guard('company')->user())
 								<li><a href="/companylogout">Çıxış</a></li>
 							@else
 							<li><a href="/logout">Çıxış</a></li>
 							@endif
-							
+
 						</ul>
 						@endif
 					</li>
@@ -103,13 +103,13 @@
 					<input name="search" type="text" placeholder="Axtarış..." />
 					<input type="submit" />
 				</form>
-				
+
 			</nav>
 
 		</div>
 
 	</div>
-	
+
 
   @yield('basliq')
 

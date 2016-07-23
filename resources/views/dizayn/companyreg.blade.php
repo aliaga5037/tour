@@ -39,12 +39,29 @@ label{
 
   }
 
+  .mesaj{
+
+
+    height: 43px;
+    color: green;
+    font-size: 14px;
+    text-align: center;
+    width: 312px;
+    border: 1px solid black;
+    
+  }
 
 
 
 </style>
 
+
 <div style="margin-left:35%;" class="">
+
+
+  @if(Session::has('message'))
+                        <div  class="mesaj alert alert-success"><b>{{ Session::get('message') }}</b></div>
+                    @endif
 
   <form class="" action="{{ url('/companyRegister') }}" method="post">
       {{ csrf_field() }}
