@@ -38,10 +38,10 @@ width: 50%;
 		<input type="text" id="ad"  name="tourName" value="{{ $tour->tourName }}" required>
 
 		<label style="color:black;" for="start">Turun başlama tarixi</label>        
-        <input type="text" name="date" class="date" value="{{ $tour->start }}" />
+        <input type="date" name="start"  id="start" value="{{ $tour->start }}" />
       
-		<label style="color:black;" for="datepicker">Turun bitmə tarixi</label>
-		<input type="text" name="date" class="date" value="{{ $tour->end }}" required/>
+		<label style="color:black;" for="end">Turun bitmə tarixi</label>
+		<input type="date" name="end"  id="end" value="{{ $tour->end }}" required/>
 
 		<label style="color:black;" for="country">Ölkə</label>
 		<input type="text" id="country"  name="country" value="{{ $tour->country }}" required>
@@ -49,8 +49,11 @@ width: 50%;
 		<label style="color:black;" for="flyPoint">Uçuş nöqtəsi</label>
 		<input type="text" id="flyPoint"  name="flyPoint" value="{{ $tour->flyPoint }}" required>
 
+		<label style="color:black;" for="hotel">Hotel</label>
+		<input type="text" id="hotel"  name="hotel" value="{{ $tour->hotel }}" required>
+
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea type="text" id="about"  name="about" value="{{ $tour->about }}" required></textarea>
+		<textarea type="text" id="about"  name="about" value="" required>{{ $tour->about }}</textarea>
 
 		<label style="color:black;" for="price">Turun qiyməti</label>
 		<input type="number" id="price"  name="price" value="{{ $tour->price }}" required>
