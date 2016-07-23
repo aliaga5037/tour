@@ -46,208 +46,28 @@
 
 	<!-- Recommended trips -->
 	<ul class="results">
+			@foreach($tourindex as $tourin)
 
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/8.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Marina Bay Sands</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/9.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Palma</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Mallorca</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/13.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Holiday Inn</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Cannes</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/14.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Grand</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
+					<li class="short grid_3">
+						<a href="/tours/{{ $tourin->latin }}"><img src="/dizayn/img/8.jpg" alt="" /></a>
+						<h3><a href="/tours/{{ $tourin->latin }}">{{ $tourin->tourName }}</a></h3>
+						<span class="stars">
+							<img src="/dizayn/img/star_full.png" alt="" />
+							<img src="/dizayn/img/star_full.png" alt="" />
+							<img src="/dizayn/img/star_full.png" alt="" />
+							<img src="/dizayn/img/star_half.png" alt="" />
+							<img src="/dizayn/img/star_empty.png" alt="" />
+						</span>
+						<div>
+							<span><a href="/tours/{{ $tourin->latin }}">{{ $tourin->country }}</a></span>
+							<span><strong>{{ $tourin->price }}€</strong> / 10 days</span>
+						</div>
+					</li>
+			@endforeach
 	</ul>
 
-	<ul class="results">
 
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/8.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Marina Bay Sands</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
 
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/9.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Palma</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Mallorca</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/13.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Holiday Inn</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Cannes</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/14.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Grand</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-	</ul>
-
-	<ul class="results">
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/8.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Marina Bay Sands</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/9.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Palma</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Mallorca</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/13.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Holiday Inn</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_empty.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Cannes</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-		<li class="short grid_3">
-			<a href="hotel.html"><img src="/dizayn/img/14.jpg" alt="" /></a>
-			<h3><a href="hotel.html">Hotel Grand</a></h3>
-			<span class="stars">
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_full.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-				<img src="/dizayn/img/star_half.png" alt="" />
-			</span>
-			<div>
-				<span><a href="#">Singapore</a></span>
-				<span><strong>1 899 €</strong> / 10 days</span>
-			</div>
-		</li>
-
-	</ul>
 
 	<div class="clearfix"></div>
 	<hr class="dashed grid_12" />

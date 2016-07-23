@@ -39,7 +39,7 @@ Route::resource('/{id}/tours', 'TourController');
   Route::get('/company', function () {
     return view('dizayn.companypage');
 });
-  
+
   Route::post('/companylog','CompanyController@postLogin');
   Route::get('/companylogout','CompanyController@logout');
 
@@ -54,9 +54,7 @@ Route::get('/companyRegister', function () {
   Route::get('/home','HomeController@index');
 
 
-Route::get('/', function () {
-    return view('dizayn.index');
-});
+Route::get('/','linksController@tourindex');
 
 
 Route::get('/turlar', function () {
@@ -74,6 +72,9 @@ Route::get('/userreg', function () {
 Route::get('/companyreg', function () {
     return view('dizayn.companyreg');
 });
+
+
+Route::get('/tours/{link}','linksController@tourlink');
 
 
 

@@ -15,14 +15,14 @@
 		border: 1px solid black!important;
 	}
 	a:hover, a:focus {
-    color: #fff; 
+    color: #fff;
     text-decoration: none;
 }
 </style>
 	<div class="container_12" style="padding:  10px;">
-	
-		
-	
+
+
+
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -40,9 +40,9 @@
 			</thead>
 			<tbody>
 			@foreach ($company->tours as $tour)
-			
+
 				<tr>
-					<td>{{$tour->tourName}}</td>
+					<td><a href="/tours/{{ $tour->latin }}">{{$tour->tourName}}</></td>
 					<td>{{$tour->start}}</td>
 					<td>{{$tour->end}}</td>
 					<td>{{$tour->flyPoint}}</td>
@@ -62,7 +62,7 @@
 			</tbody>
 		</table>
 
-		
+
 		<div class="text-center">
 		<a href="/{{$company->id}}/tours/create" class="btn btn-success text-center" style="width:30%;">Tur əlavə et</a>
 		</div>

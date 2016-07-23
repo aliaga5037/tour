@@ -47,7 +47,7 @@ width: 50%;
 
 		<label style="color:black;" for="price">Turun qiyməti</label>
 		<input type="number" id="price"  name="price" value="{{ old('price') }}" required>
-		
+
 		<label style="color:black;" for="flyPoint">Uçuş nöqtəsi</label>
 		<input type="text" id="flyPoint"  name="flyPoint" value="{{ old('flyPoint') }}" required>
 

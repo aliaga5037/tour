@@ -885,7 +885,7 @@ article {
 			display: inline-block;
 			width: 18px;
 			height: 28px;
-			background: url("img/gallery_buttons.png") top left;
+			background: url("../img/gallery_buttons.png") top left;
 		}
 			.gallery .slider_nav .left {
 				background-position: 0px 0px;
