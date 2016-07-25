@@ -36,7 +36,7 @@
             <td>{{ $company->companyDate }}</td>
             <td>{{ $company->companyAbout }}</td>
               <td>@if($company->onoff == 0)
-                <form  action="/admin/companylist/{{ $company->id }}" >
+                <form  action="/admin/companylist/{{ $company->id }}" method="post">
                   {{ csrf_field() }}
                   <input type="hidden" name="_method" value="PUT" >
 
