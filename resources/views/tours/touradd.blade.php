@@ -62,14 +62,4 @@ width: 50%;
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>
 </div>
-<<<<<<< HEAD
-
-<form method="post" action="nieuw" enctype="multipart/form-data">
-    <input type="file" class="form-control" name="images" multiple>
-</form>
-
-
 @stop
-=======
-@stop
->>>>>>> upstream/master

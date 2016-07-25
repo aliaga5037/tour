@@ -1,10 +1,10 @@
 @extends('layouts.dizayn')
 @section('head')
 	
-@stop
 @section('script')
 <script src="/dizayn/js/jquery2.min.js"></script>
-	<script src="/dizayn/datapicker/js/bootstrap-datepicker.js"></script>
+<script src="/dizayn/datapicker/js/bootstrap-datepicker.js"></script>
+
 @stop
 @section('content')
 <style media="screen">
@@ -61,6 +61,7 @@ width: 50%;
 		<input style="margin-top:50px; " type="submit" name="name" value="Dəyişikliyi qeyd et">
 	</form>
 </div>
+
 
 <script>
   $( function() {
