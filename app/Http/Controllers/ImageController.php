@@ -49,19 +49,19 @@ class ImageController extends Controller
      */
     public function store(Request $request , $id)
     {
-        $rules = array(
-            'image' => 'required | mimes:jpeg,jpg,png | max:1000',
-        );
+        // $rules = array(
+        //     'image' => 'required | mimes:jpeg,jpg,png | max:1000',
+        // );
 
-        $validator = Validator::make($request->all(), $rules);
+        // $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            dd($validator);
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+        // if ($validator->fails()) {
+        //     dd($validator);
+        //     return back()
+        //         ->withErrors($validator)
+        //         ->withInput();
 
-        }
+        // }
 
         $tour = Tour::findOrFail($id);
 

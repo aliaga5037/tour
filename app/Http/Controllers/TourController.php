@@ -122,9 +122,10 @@ class TourController extends Controller
        $tour = Tour::findOrFail($tourId);
         $tour->update($request->all());
         
-        // return redirect("/$id/tours");
+        return redirect("/$id/tours");
     }
 
+    //dssdfds
     /**
      * Remove the specified resource from storage.
      *
