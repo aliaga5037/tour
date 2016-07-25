@@ -69,8 +69,8 @@ class TourController extends Controller
               'price' => $request['price'],
               'flyPoint' => $request['flyPoint'],
               'about' => $request['about'],
-              'latin' => $latinad
-
+              'latin' => $latinad,
+              'hotel' => $request['hotel'],
             );
 
 
@@ -112,11 +112,12 @@ class TourController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id,$tourId)
-    { 
-       
-       $tour = Tour::findOrFail($tourId);
+    {
+
+        $tour = Tour::findOrFail($tourId);
         $tour->update($request->all());
         return redirect("/$id/tours");
+
     }
 
     /**

@@ -53,8 +53,8 @@ width: 50%;
 
 		<label style="color:black;" for="hotel">Hotel</label>
 		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
-		
-		
+
+
 
 		<label style="color:black;" for="about">Tur haqqında</label>
 		<textarea type="text" id="about"  name="about" value="{{ old('about') }}" required></textarea>
@@ -62,14 +62,5 @@ width: 50%;
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>
 </div>
-<<<<<<< HEAD
-
-<form method="post" action="nieuw" enctype="multipart/form-data">
-    <input type="file" class="form-control" name="images" multiple>
-</form>
-
 
 @stop
-=======
-@stop
->>>>>>> upstream/master
