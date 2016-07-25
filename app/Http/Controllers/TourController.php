@@ -10,6 +10,10 @@ use App\Company;
 
 use App\Tour;
 
+use Image;
+
+use Illuminate\Http\UploadedFile;
+
 class TourController extends Controller
 {
     /**
@@ -69,6 +73,7 @@ class TourController extends Controller
               'price' => $request['price'],
               'flyPoint' => $request['flyPoint'],
               'about' => $request['about'],
+              'hotel' => $request['hotel'],
               'latin' => $latinad
 
             );
@@ -116,7 +121,8 @@ class TourController extends Controller
        
        $tour = Tour::findOrFail($tourId);
         $tour->update($request->all());
-        return redirect("/$id/tours");
+        
+        // return redirect("/$id/tours");
     }
 
     /**

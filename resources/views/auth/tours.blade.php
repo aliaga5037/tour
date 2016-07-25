@@ -32,6 +32,7 @@
 					<th>Uçuş nöqtəsi</th>
 					<th>Ölkə</th>
 					<th>Otel</th>
+					<th>Şəkillər</th>
 					<th>Qiymət</th>
 					<th>Tur haqqında</th>
 					<th>Editlə</th>
@@ -49,6 +50,7 @@
 					<td>{{$tour->flyPoint}}</td>
 					<td>{{$tour->country}}</td>
 					<td>{{$tour->hotel}}</td>
+					<td><a href="{{ url("/$tour->id/images") }}">Şəkillər</a></td>
 					<td>{{$tour->price}}AZN</td>
 					<td>{{$tour->about}}</td>
 					<td><a href="{{ url("/$company->id/tours/$tour->id/edit") }}" class="btn btn-primary">Edit</a></td>

@@ -32,7 +32,7 @@ Route::group(['middleware'=>'auth:company'],function(){
 Route::get('/company', 'CompanyController@index');
 Route::resource('/{id}/tours', 'TourController');
 
-Route::post('upload' , 'HomeController@upload');
+Route::resource('/{id}/images' , 'ImageController');
 
 });
 
