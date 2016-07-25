@@ -40,7 +40,7 @@
                   {{ csrf_field() }}
                   <input type="hidden" name="_method" value="PUT" >
 
-                <button type="submit" value="Gözləmə" class="btn btn-danger"></button>
+                <input type="submit" value="Gözləmə" class="btn btn-danger">
               </form>
               @endif</td>
             <td>@if($company->onoff == 1) <span class="label label-success">Təsdiqlənmiş</span> @endif</td>
