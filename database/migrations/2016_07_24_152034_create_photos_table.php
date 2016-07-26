@@ -18,6 +18,8 @@ class CreatePhotosTable extends Migration
             $table->string("file_size");
             $table->string("file_mime");
             $table->string("file_path");
+            $table->integer("company_id")->unsigned()->index();
+            $table->foreign("company_id")->references('id')->on('companies')->onDelete('cascade');
             $table->integer("tour_id")->unsigned()->index();
             $table->foreign("tour_id")->references('id')->on('tours')->onDelete('cascade');
             $table->timestamps();

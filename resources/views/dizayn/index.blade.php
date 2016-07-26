@@ -1,4 +1,8 @@
 @extends('layouts.dizayn')
+
+@section('head')
+	<link rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+@stop
 @section('basliq');
 @if (auth()->guard()->guest() && auth()->guard('company')->guest())
 				<a href="/login" class="login">Giriş</a>
@@ -20,17 +24,14 @@
 <!-- Slider content -->
 <ul class="homepage_slider">
 
+	
+	@foreach($slide as $tourin)
 	<!-- First slide -->
-	<li>
-		<h2><a href="trip.html">The Indonesia Expedition from <strong>799 €</strong></a></h2>
-		<p>Ubud, Uluwatu, Batur, Besakih and Tenganan</p>
+	<li style="display: block;">
+		<h2><a href="/tours/{{ $tourin->latin }}">The {{ $tourin->country }} Expedition from <strong>{{ $tourin->price }} AZN</strong></a></h2>
+		<p>{{ $tourin->about }}</p>
 	</li>
-
-	<!-- Second slide -->
-	<li>
-		<h2><a href="hotel.html">A wonderful week in Singapore from <strong>999 €</strong></a></h2>
-		<p>With accomodation in Marina Bay Sands</p>
-	</li>
+	@endforeach
 
 </ul>
 
@@ -38,7 +39,12 @@
 </div>
 @endsection
 @section('content')
-
+<style>
+a:hover, a:focus {
+color: #fff;
+text-decoration: none;
+}
+</style>
 
 
 <!-- Main content -->
@@ -46,10 +52,18 @@
 
 	<!-- Recommended trips -->
 	<ul class="results">
+	<li class="text-center">
 			@foreach($tourindex as $tourin)
-
+					
 					<li class="short grid_3">
-						<a href="/tours/{{ $tourin->latin }}"><img src="/dizayn/img/8.jpg" alt="" /></a>
+						<a href="/tours/{{ $tourin->latin }}"><img src="
+							@if (count($tourin->photos) != 0)
+							
+								{{ $tourin->photos->first()->file_path }}
+							@else
+								/dizayn/img/1.jpg
+							@endif
+						" alt="" style="width: 100%; height: 220px;" /></a>
 						<h3><a href="/tours/{{ $tourin->latin }}">{{ $tourin->tourName }}</a></h3>
 						<span class="stars">
 							<img src="/dizayn/img/star_full.png" alt="" />
@@ -60,16 +74,21 @@
 						</span>
 						<div>
 							<span><a href="/tours/{{ $tourin->latin }}">{{ $tourin->country }}</a></span>
-							<span><strong>{{ $tourin->price }}€</strong> / 10 days</span>
+							<span><strong>{{ $tourin->price }}AZN</strong> / 10 days</span>
 						</div>
 					</li>
 			@endforeach
+			</li>
 	</ul>
+	
 
 
 
 
 	<div class="clearfix"></div>
+	<div class="text-center">
+		{{ $tourindex->render() }}
+	</div>
 	<hr class="dashed grid_12" />
 
 

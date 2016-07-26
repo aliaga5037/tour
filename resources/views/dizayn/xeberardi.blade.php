@@ -1,10 +1,12 @@
 @extends('layouts.dizayn')
 @section('basliq')
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+				<a href="/login" class="login">Giriş</a>
+				@endif
 <h2>
     @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
     {{ $tourlink->tourName }}
     @endif
-
 </h2>
 @endsection
 @section('content')
@@ -24,28 +26,20 @@
 
 			<!-- Slider content -->
 			<div class="slider_content">
+					@foreach ($tourlink->photos as $image)
+						{{-- expr --}}
+					
+				@if (count($tourlink->photos) == 0)
+					<a href="/dizayn/img/1.jpg">
+					<img src="/dizayn/img/1.jpg" alt="" />
+				</a>
+				@else
+				<a href="{{ $image->file_path }} ">
+					<img src="{{ $image->file_path }} " alt="" />
+				</a>
+				@endif
+				@endforeach
 
-				<a href="/dizayn/img/8.jpg">
-					<img src="/dizayn/img/8.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/9.jpg">
-					<img src="/dizayn/img/9.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/12.jpg">
-					<img src="/dizayn/img/12.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/13.jpg">
-					<img src="/dizayn/img/13.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/14.jpg">
-					<img src="/dizayn/img/14.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/9.jpg">
-					<img src="/dizayn/img/9.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/12.jpg">
-					<img src="/dizayn/img/12.jpg" alt="" />
-				</a>
 			</div>
 
 		</div>
@@ -86,7 +80,7 @@
 
 <p>
   @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-  {{ $tourlink->price }}
+  {{ $tourlink->price }}&nbspAZN
   @endif
 </p>
 
@@ -96,7 +90,14 @@
 
 	<!-- Video -->
 	<section class="video grid_4">
-		<iframe src="http://player.vimeo.com/video/27246366?color=ffffff"></iframe>
+			
+		
+		<img src="@if (count($tourlink->photos) == 0)
+			/dizayn/img/1.jpg
+			@else
+			{{ $tourlink->photos->first()->file_path }} 
+			
+		@endif" alt="">
 	</section>
 
 	<div class="clearfix"></div>

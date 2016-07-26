@@ -14,9 +14,7 @@
 	.table-bordered>tbody>tr>td{
 		border: 1px solid black!important;
 	}
-	a{
-		width: 50%;
-	}
+	
 	a:hover, a:focus {
 color: #fff;
 text-decoration: none;

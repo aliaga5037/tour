@@ -10,14 +10,16 @@ use App\Company;
 
 use App\Tour;
 
+use DB;
 class linksController extends Controller
 {
       public function tourlink($link){
                 if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
                   $tourlink = Tour::where('latin', $link)->first();
-
-                                  return view('dizayn.xeberardi', compact('tourlink'));
+                  $photos = $tourlink->photos->all();
+                 
+                                  return view('dizayn.xeberardi', compact('tourlink','photos'));
                 }
 
         }
@@ -26,9 +28,9 @@ class linksController extends Controller
 
           if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
-            $tourindex = Tour::all();
-
-                            return view('dizayn.index', compact('tourindex'));
+            $tourindex = Tour::orderBy('id', 'desc')->paginate(12);
+             $slide = Tour::orderBy('id', 'desc')->limit(5)->get();
+                            return view('dizayn.index', compact('tourindex' , 'slide'));
           }
 
         }

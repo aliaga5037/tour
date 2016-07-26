@@ -78,12 +78,28 @@ class TourController extends Controller
 
             );
 
-
+            
             $comp->tours()->create($down);
 
+            $tur = Tour::find($comp->tours->last()->id);
+            
+            if ($request->hasFile('image')) {
+           
+            $avatar = $request->file('image');
+            $filename = time() . '.' . $avatar->getClientOriginalName();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/images/'.$filename));
 
+                $image =  $tur->photos()->create([
+                    'file_name' => $filename,
+                    'file_size' => $avatar->getClientSize(),
+                    'file_mime' => $avatar->getClientMimeType(),
+                    'file_path' => '/uploads/images/'.$filename,
+                    'tour_id' => $tur->id,
+                    'company_id' => auth()->guard('company')->user()->id
 
-        return redirect("/$id/tours");
+                ]);
+          }
+               return redirect("/$id/tours");
     }
 
     /**
