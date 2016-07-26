@@ -25,34 +25,15 @@
             <th>Şirkət Adı</th>
             <th>Yaranma Tarix</th>
             <th>Şirkət Məlumat</th>
-            <th>Şirkətin turları</th>
-            <th>Gözləyənlər</th>
+              <th>Gözləyənlər</th>
             <th>Təsdiq olunanlar</th>
           </tr>
-          @foreach($companyList as $company)
-          <tr>
-            <td>{{ $company->founderName }}</td>
-            <td>{{ $company->founderSurname }}</td>
-            <td>{{ $company->companyName }}</td>
-            <td>{{ $company->companyDate }}</td>
-            <td>{{ $company->companyAbout }}</td>
-            <td><a href="/admin/{{ $company->id }}/tours"><span class="label label-primary">Turlar</span></a></td>
-              <td>@if($company->onoff == 0)
-                <form  action="/admin/companylist/{{ $company->id }}" method="post">
-                  {{ csrf_field() }}
-                  <input type="hidden" name="_method" value="PUT" >
-
-                <input type="submit" value="Gözləmə" class="btn btn-danger">
-              </form>
-              @endif</td>
-            <td>@if($company->onoff == 1) <span class="label label-success">Təsdiqlənmiş</span> @endif</td>
-          </tr>
-          @endforeach
+         
 
 
         </table>
         <div class="text-center">
-            {{ $companyList->render() }}
+            
         </div>
       </div>
       <!-- /.box-body -->
