@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Company;
+use App\Photo;
 use Illuminate\Database\Eloquent\Model;
 
 class Tour extends Model
@@ -15,4 +16,19 @@ class Tour extends Model
     {
     	return $this->belongsTo(Company::class);
     }
+
+    public function photos()
+    {
+    	return $this->hasMany(Photo::class);
+    }
+
+		public function basket(){
+
+			 return $this->hasMany('App\Basket','tour_id');
+
+	 }
+
+
+
+
 }

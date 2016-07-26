@@ -94,6 +94,7 @@ class AdminController extends Controller
             $sirket ->onoff = 1;
 
             $sirket ->save();
+
               Mail::send('mail',[],function($mail) use($sirketMail) {
 
                 $mail->to($sirketMail)->subject('tesdiqlendi');

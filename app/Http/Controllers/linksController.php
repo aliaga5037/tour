@@ -10,6 +10,8 @@ use App\Company;
 
 use App\Tour;
 
+use App\Basket;
+
 class linksController extends Controller
 {
       public function tourlink($link){
@@ -30,6 +32,19 @@ class linksController extends Controller
 
                             return view('dizayn.index', compact('tourindex'));
           }
+
+        }
+
+
+        public function test(){
+
+          $test = Tour::with('Basket')->get();
+
+          dd($test);
+
+
+
+              return view('dizayn.test',compact('test'));
 
         }
 }

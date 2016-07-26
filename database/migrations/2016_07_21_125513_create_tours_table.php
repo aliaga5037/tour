@@ -27,6 +27,9 @@ class CreateToursTable extends Migration
             $table->string('latin');
             $table->timestamps();
         });
+
+
+
     }
 
     /**

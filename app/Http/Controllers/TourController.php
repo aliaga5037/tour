@@ -10,6 +10,10 @@ use App\Company;
 
 use App\Tour;
 
+use Image;
+
+use Illuminate\Http\UploadedFile;
+
 class TourController extends Controller
 {
     /**
@@ -69,8 +73,10 @@ class TourController extends Controller
               'price' => $request['price'],
               'flyPoint' => $request['flyPoint'],
               'about' => $request['about'],
+
               'latin' => $latinad,
               'hotel' => $request['hotel'],
+
             );
 
 
@@ -116,10 +122,12 @@ class TourController extends Controller
 
         $tour = Tour::findOrFail($tourId);
         $tour->update($request->all());
+
         return redirect("/$id/tours");
 
     }
 
+    //dssdfds
     /**
      * Remove the specified resource from storage.
      *
