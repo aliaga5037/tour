@@ -22,6 +22,7 @@ class CreateToursTable extends Migration
             $table->string('flyPoint');
             $table->string('hotel');
             $table->text('about');
+            $table->boolean('onoff')->default(0);
             $table->integer('company_id')->unsigned()->index();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('latin');

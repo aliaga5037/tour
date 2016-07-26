@@ -35,6 +35,8 @@
 					<th>Şəkillər</th>
 					<th>Qiymət</th>
 					<th>Tur haqqında</th>
+					<th>Gözləyənlər</th>
+            		<th>Təsdiq olunanlar</th>
 					<th>Editlə</th>
 					<th>Turu sil</th>
 
@@ -50,9 +52,11 @@
 					<td>{{$tour->flyPoint}}</td>
 					<td>{{$tour->country}}</td>
 					<td>{{$tour->hotel}}</td>
-					<td><a href="{{ url("/$tour->id/images") }}">Şəkillər</a></td>
+					<td><a href="{{ url("/$tour->id/images") }}"><span class="label label-primary">Şəkillər</span></a></td>
 					<td>{{$tour->price}}AZN</td>
 					<td>{{$tour->about}}</td>
+					<td>@if($tour->onoff == 0) <span class="label label-danger">Təsdiq Gözləyir</span> @endif</td>
+					<td>@if($tour->onoff == 1) <span class="label label-success">Təsdiqlənmiş</span> @endif</td>
 					<td><a href="{{ url("/$company->id/tours/$tour->id/edit") }}" class="btn btn-primary">Edit</a></td>
 					<td>
 						<form action="{{url("/$company->id/tours/$tour->id")}}" method="post">
