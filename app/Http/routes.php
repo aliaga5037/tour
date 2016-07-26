@@ -10,7 +10,8 @@ Route::group(['middleware'=>'auth:admin'],function(){
 
   Route::get('/admin/admin','AdminController@index');
   Route::get('/admin/companylist','AdminController@companyList');
-  Route::get('/admin/{company}/tours','AdminController@tours');
+  Route::get('/admin/{company}/tours','AdminController@tourList');
+  Route::put('/admin/tour/{id}','AdminController@tourListPost');
   Route::put('/admin/companylist/{id}','AdminController@companyListPost');
 });
 
