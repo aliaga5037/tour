@@ -53,11 +53,10 @@ width: 50%;
 
 		<label style="color:black;" for="hotel">Hotel</label>
 		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
-		
+
 		<input type="hidden" nqme="_token" value="{{ csrf_token() }}">
 		<input type="file" name="image">
-		
-		
+
 
 		<label style="color:black;" for="about">Tur haqqında</label>
 		<textarea type="text" id="about"  name="about" value="{{ old('about') }}" required></textarea>
@@ -65,4 +64,7 @@ width: 50%;
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>
 </div>
+
+
+
 @stop

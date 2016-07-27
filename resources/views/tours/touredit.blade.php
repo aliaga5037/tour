@@ -1,6 +1,6 @@
 @extends('layouts.dizayn')
 @section('head')
-	
+
 @section('script')
 <script src="/dizayn/js/jquery2.min.js"></script>
 <script src="/dizayn/datapicker/js/bootstrap-datepicker.js"></script>
@@ -37,9 +37,9 @@ width: 50%;
 		<label style="color:black;" for="ad">Turun adı</label>
 		<input type="text" id="ad"  name="tourName" value="{{ $tour->tourName }}" required>
 
-		<label style="color:black;" for="start">Turun başlama tarixi</label>        
+		<label style="color:black;" for="start">Turun başlama tarixi</label>
         <input type="date" name="start"  id="start" value="{{ $tour->start }}" />
-      
+
 		<label style="color:black;" for="end">Turun bitmə tarixi</label>
 		<input type="date" name="end"  id="end" value="{{ $tour->end }}" required/>
 

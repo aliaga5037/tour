@@ -38,7 +38,9 @@
             <td>{{ $company->companyAbout }}</td>
             <td><a href="/admin/{{ $company->id }}/tours"><span class="label label-primary">Turlar</span></a></td>
               <td>@if($company->onoff == 0)
+
                 <form  action="/admin/companylist/{{ $company->id }}" method="post">
+
                   {{ csrf_field() }}
                   <input type="hidden" name="_method" value="PUT" >
 

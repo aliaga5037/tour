@@ -27,11 +27,13 @@
 			<!-- Slider content -->
 			<div class="slider_content">
 
+
 			@if (count($photos) == 0)
 
-					
-					
-				
+
+
+
+
 					<a href="/dizayn/img/1.jpg">
 					<img src="/dizayn/img/1.jpg" alt="" />
 				</a>
@@ -42,7 +44,7 @@
 				</a>
 				@endforeach
 				@endif
-				
+
 
 			</div>
 
@@ -72,11 +74,11 @@
     <p>
 
       @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-      {{ $tourlink->start }}
+      {{ $vaxt }}
       @endif
 
         -   @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-          {{ $tourlink->end }}
+          {{$vaxtdan}}
           @endif
     </p>
 
@@ -90,18 +92,73 @@
 
 
 
+
 	</section>
 
 	<!-- Video -->
 	<section class="video grid_4">
-			
-		
+
+
 		<img src="@if (count($tourlink->photos) == 0)
 			/dizayn/img/1.jpg
 			@else
-			{{ $tourlink->photos->first()->file_path }} 
-			
+			{{ $tourlink->photos->first()->file_path }}
+
 		@endif" alt="">
+		@if(auth()->guard('')->user())
+
+
+			@if( count($tourlink->basket)==0)
+			<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
+				{{csrf_field()}}
+
+
+
+				<input style="width:300px;" type="submit" value="Səbətə Əlavə Et">
+
+			</form>
+			@endif
+
+			@foreach($tourlink->basket as $tur)
+
+
+
+
+
+		@if( $tur->tour_id != $tourlink->id && $tur->user_id != Auth::user()->id )
+		<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
+			{{csrf_field()}}
+
+
+
+			<input style="width:300px;" type="submit" value="Səbətə Əlavə Et">
+
+		</form>
+
+
+
+
+	@if(1==1)@break; @endif
+
+		@else
+
+		<form class="" action="/tours/tourbuy/{{$tur->id}}" method="post">
+
+			{{csrf_field()}}
+			<input type="hidden" name="_method" value="delete">
+
+
+			<input style="width:300px;" type="submit" value="Səbətdən Çıxart">
+
+		</form>
+
+
+		@endif
+
+			@endforeach
+		@endif
+
+
 	</section>
 
 	<div class="clearfix"></div>

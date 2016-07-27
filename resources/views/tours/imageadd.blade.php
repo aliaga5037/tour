@@ -14,7 +14,11 @@
 	.table-bordered>tbody>tr>td{
 		border: 1px solid black!important;
 	}
+<<<<<<< HEAD
+
+=======
 	
+>>>>>>> 4f428a5437a4fe719cc58a816bc20b24f457626c
 	a:hover, a:focus {
 color: #fff;
 text-decoration: none;
@@ -71,19 +75,19 @@ text-decoration: none;
 <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript">
  $("#imageupload").on('change', function () {
- 
+
      var countFiles = $(this)[0].files.length;
- 
+
      var imgPath = $(this)[0].value;
      var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
      var image_holder = $("#preview-image");
      image_holder.empty();
- 
+
      if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
          if (typeof (FileReader) != "undefined") {
- 
+
              for (var i = 0; i < countFiles; i++) {
- 
+
                  var reader = new FileReader();
                  reader.onload = function (e) {
                      $("<img />", {
@@ -91,11 +95,11 @@ text-decoration: none;
                              "class": "thumbimage"
                      }).appendTo(image_holder);
                  }
- 
+
                  image_holder.show();
                  reader.readAsDataURL($(this)[0].files[i]);
              }
- 
+
          } else {
              alert("It doesn't supports");
          }

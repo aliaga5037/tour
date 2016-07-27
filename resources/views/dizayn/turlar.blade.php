@@ -59,12 +59,12 @@ text-decoration: none;
   <!-- Results -->
   <ul class="results">
     @foreach ($tours as $tour)
-      
-    
+
+
     <li class="grid_4">
       <a href="/tours/{{ $tour->latin}}"><img src="
       @if (count($tour->photos) != 0)
-      
+
       {{ $tour->photos->first()->file_path }}
 
       @else
@@ -75,7 +75,7 @@ text-decoration: none;
 
       " alt="{{ $tour->tour_name }}" style="width:100%;height:220px;" /></a>
       <h3><a href="/tours/{{ $tour->latin }}">{{ $tour->tourName }}</a></h3>
-      <span class="price"><strong>{{ $tour->price }} Azn</strong> / 10 days</span>
+      <span class="price"><strong>{{ $tour->price }} Azn</strong> / {{$tour->days}} gün</span>
       <div>
         <span><a href="/tours/{{ $tour->latin }}">{{ $tour->country }}</a></span>
         <span class="stars">
@@ -88,13 +88,13 @@ text-decoration: none;
         <span>All inclusive</span>
       </div>
     </li>
-    
+
     @endforeach
 
   </ul>
 
   <div class="clearfix"></div>
-  
+
   <!-- Pagination -->
   <div class="text-center">
    {!! $tours->render() !!}

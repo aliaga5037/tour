@@ -24,7 +24,7 @@
 <!-- Slider content -->
 <ul class="homepage_slider">
 
-	
+
 	@foreach($slide as $tourin)
 	<!-- First slide -->
 	<li style="display: block;">
@@ -54,11 +54,11 @@ text-decoration: none;
 	<ul class="results">
 	<li class="text-center">
 			@foreach($tourindex as $tourin)
-					
+
 					<li class="short grid_3">
 						<a href="/tours/{{ $tourin->latin }}"><img src="
 							@if (count($tourin->photos) != 0)
-							
+
 								{{ $tourin->photos->first()->file_path }}
 							@else
 								/dizayn/img/1.jpg
@@ -74,13 +74,13 @@ text-decoration: none;
 						</span>
 						<div>
 							<span><a href="/tours/{{ $tourin->latin }}">{{ $tourin->country }}</a></span>
-							<span><strong>{{ $tourin->price }}AZN</strong> / 10 days</span>
+							<span><strong>{{ $tourin->price }}AZN</strong> / {{$tourin->days}} gün</span>
 						</div>
 					</li>
 			@endforeach
 			</li>
 	</ul>
-	
+
 
 
 

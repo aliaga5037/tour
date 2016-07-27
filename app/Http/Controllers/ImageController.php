@@ -66,9 +66,9 @@ class ImageController extends Controller
         $tour = Tour::findOrFail($id);
 
         if ($request->hasFile('image')) {
-           
+
             $avatar = $request->file('image');
-            for ($i=0; $i < count($avatar); $i++) { 
+            for ($i=0; $i < count($avatar); $i++) {
             $filename = time() . '.' . $avatar[$i]->getClientOriginalName();
             Image::make($avatar[$i])->resize(300,300)->save(public_path('/uploads/images/'.$filename));
 
@@ -82,7 +82,7 @@ class ImageController extends Controller
 
                 ]);
             }
-            
+
             return redirect("/$tour->id/images");
         }
     }

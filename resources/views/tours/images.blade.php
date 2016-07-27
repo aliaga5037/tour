@@ -35,8 +35,8 @@ text-decoration: none;
 			</thead>
 			<tbody>
 				@foreach ($tour->photos as $image)
-				
-				
+
+
 				<tr>
 					<td><img src="{{ $image->file_path }}" alt=""></td>
 					<td>
