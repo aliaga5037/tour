@@ -81,7 +81,7 @@
 						@elseif(auth()->guard('company')->user() || auth()->guard('')->user())
 						<a href="#">Məlumat</a>
 						<ul>
-							<li><a href="#">Profil</a></li>
+							<li><a href="/{{ Auth::user()->id }}/profile">Profil</a></li>
 							@if (auth()->guard('company')->user())
 							<li><a href="/{{auth()->guard('company')->user()->id}}/tours">Mənim Turlarım</a></li>
 							@elseif(Auth::user())

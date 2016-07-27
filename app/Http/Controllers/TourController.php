@@ -21,10 +21,14 @@ class TourController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Company $id)
+    public function index($id)
     {
+      $company = Company::findOrFail($id);
+      if (auth()->guard('company')->user()->id != $id) {
+        return back();
+      }
 
-      return view('auth.tours')->with('company',$id);
+      return view('auth.tours')->with('company',$company);
     }
 
     /**

@@ -88,3 +88,10 @@ Route::get('/elaqe', function () {
 });
 
 Route::auth();
+
+
+Route::get('/{id}/profile' , 'UserController@profile');
+Route::get('/{id}/profile/edit' , 'UserController@edit');
+Route::put('/{id}/profile' , 'UserController@update');
+Route::delete('/{id}/profile/destroy' , 'UserController@destroy');
+
