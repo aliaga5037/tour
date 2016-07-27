@@ -6,19 +6,17 @@
 Route::group(['middleware'=>'admin'],function(){
 
 
-Route::group(['middleware'=>'auth:admin'],function(){
+  Route::group(['middleware'=>'auth:admin'],function(){
 
   Route::get('/admin/admin','AdminController@index');
+
   Route::get('/admin/companylist','AdminController@companyList');
   Route::get('/admin/{company}/tours','AdminController@tourList');
   Route::put('/admin/tour/{id}','AdminController@tourListPost');
   Route::put('/admin/companylist/{id}','AdminController@companyListPost');
+
+
 });
-
-
-
-
-
 
   Route::get('/admin/adminlog','AdminController@login');
   Route::post('/admin/adminlog','AdminController@postLogin');
@@ -29,16 +27,14 @@ Route::group(['middleware'=>'auth:admin'],function(){
 
 Route::group(['middleware'=>'company'],function(){
 
-Route::group(['middleware'=>'auth:company'],function(){
+  Route::group(['middleware'=>'auth:company'],function(){
 
-Route::get('/company', 'CompanyController@index');
-Route::resource('/{id}/tours', 'TourController');
+    Route::get('/company', 'CompanyController@index');
+    Route::resource('/{id}/tours', 'TourController');
 
-Route::resource('/{id}/images' , 'ImageController');
+    Route::resource('/{id}/images' , 'ImageController');
 
 });
-
-
 
   Route::get('/company', function () {
     return view('dizayn.companypage');
@@ -80,12 +76,21 @@ Route::get('/companyreg', function () {
 
 Route::get('/tours/{link}','linksController@tourlink');
 
+Route::post('/tours/{link}/{id}','linksController@addtobasket');
+
+Route::get('/tours/tourbuy/{id}','linksController@tourbuy');
+Route::delete('/tours/tourbuy/{id}','linksController@tourdel');
 
 
+Route::get('/test','linksController@test');
 
 Route::get('/elaqe', function () {
     return view('dizayn.elaqe');
 });
+
+
+
+
 
 Route::auth();
 

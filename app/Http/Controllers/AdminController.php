@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
       if(auth()->guard('admin')->user() or auth()->guard('')->user() or auth()->guard('company')->user() ){
 
-            return view('dizayn.index');
+            return redirect('/');
 
       }
 
@@ -96,6 +96,7 @@ class AdminController extends Controller
             $sirket ->onoff = 1;
 
             $sirket ->save();
+
               Mail::send('mail',[],function($mail) use($sirketMail) {
 
                 $mail->to($sirketMail)->subject('tesdiqlendi');
