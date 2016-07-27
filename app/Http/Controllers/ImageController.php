@@ -77,7 +77,9 @@ class ImageController extends Controller
                     'file_size' => $avatar[$i]->getClientSize(),
                     'file_mime' => $avatar[$i]->getClientMimeType(),
                     'file_path' => '/uploads/images/'.$filename,
-                    'tour_id' => $tour->id
+                    'tour_id' => $tour->id,
+                    'company_id' => auth()->guard('company')->user()->id
+
                 ]);
             }
 
@@ -127,6 +129,7 @@ class ImageController extends Controller
      */
     public function destroy($id , $imgId)
     {
+
         $photo = Photo::findOrFail($imgId);
         if (auth()->guard('company')->user()->id == $id) {
             $photo->delete();

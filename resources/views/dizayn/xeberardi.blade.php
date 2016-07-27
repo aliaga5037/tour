@@ -1,10 +1,12 @@
 @extends('layouts.dizayn')
 @section('basliq')
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+				<a href="/login" class="login">Giriş</a>
+				@endif
 <h2>
     @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
     {{ $tourlink->tourName }}
     @endif
-
 </h2>
 @endsection
 @section('content')
@@ -24,28 +26,20 @@
 
 			<!-- Slider content -->
 			<div class="slider_content">
+					@foreach ($tourlink->photos as $image)
+						{{-- expr --}}
 
-				<a href="/dizayn/img/8.jpg">
-					<img src="/dizayn/img/8.jpg" alt="" />
+				@if (count($tourlink->photos) == 0)
+					<a href="/dizayn/img/1.jpg">
+					<img src="/dizayn/img/1.jpg" alt="" />
 				</a>
-				<a href="/dizayn/img/9.jpg">
-					<img src="/dizayn/img/9.jpg" alt="" />
+				@else
+				<a href="{{ $image->file_path }} ">
+					<img src="{{ $image->file_path }} " alt="" />
 				</a>
-				<a href="/dizayn/img/12.jpg">
-					<img src="/dizayn/img/12.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/13.jpg">
-					<img src="/dizayn/img/13.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/14.jpg">
-					<img src="/dizayn/img/14.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/9.jpg">
-					<img src="/dizayn/img/9.jpg" alt="" />
-				</a>
-				<a href="/dizayn/img/12.jpg">
-					<img src="/dizayn/img/12.jpg" alt="" />
-				</a>
+				@endif
+				@endforeach
+
 			</div>
 
 		</div>
@@ -74,11 +68,11 @@
     <p>
 
       @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-      {{ $tourlink->start }}
+      {{ $vaxt }}
       @endif
 
         -   @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-          {{ $tourlink->end }}
+          {{$vaxtdan}}
           @endif
     </p>
 
@@ -86,9 +80,10 @@
 
 <p>
   @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-  {{ $tourlink->price }}
+  {{ $tourlink->price }}&nbspAZN
   @endif
 </p>
+
 
 
 
@@ -96,7 +91,68 @@
 
 	<!-- Video -->
 	<section class="video grid_4">
-		<iframe src="http://player.vimeo.com/video/27246366?color=ffffff"></iframe>
+
+
+		<img src="@if (count($tourlink->photos) == 0)
+			/dizayn/img/1.jpg
+			@else
+			{{ $tourlink->photos->first()->file_path }}
+
+		@endif" alt="">
+		@if(auth()->guard('')->user())
+
+
+			@if( count($tourlink->basket)==0)
+			<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
+				{{csrf_field()}}
+
+
+
+				<input style="width:300px;" type="submit" value="Səbətə Əlavə Et">
+
+			</form>
+			@endif
+
+			@foreach($tourlink->basket as $tur)
+
+
+
+
+
+		@if( $tur->tour_id != $tourlink->id && $tur->user_id != Auth::user()->id )
+		<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
+			{{csrf_field()}}
+
+
+
+			<input style="width:300px;" type="submit" value="Səbətə Əlavə Et">
+
+		</form>
+
+
+
+
+	@if(1==1)@break; @endif
+
+		@else
+
+		<form class="" action="/tours/tourbuy/{{$tur->id}}" method="post">
+
+			{{csrf_field()}}
+			<input type="hidden" name="_method" value="delete">
+
+
+			<input style="width:300px;" type="submit" value="Səbətdən Çıxart">
+
+		</form>
+
+
+		@endif
+
+			@endforeach
+		@endif
+
+
 	</section>
 
 	<div class="clearfix"></div>

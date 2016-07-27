@@ -12,14 +12,36 @@ use App\Tour;
 
 use App\Basket;
 
+use DB;
+
+use Carbon\Carbon;
+
 class linksController extends Controller
 {
       public function tourlink($link){
                 if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
                   $tourlink = Tour::where('latin', $link)->first();
+                  $photos = $tourlink->photos->all();
 
-                                  return view('dizayn.xeberardi', compact('tourlink'));
+                  $a = $tourlink->start;
+                  $b = $tourlink->end;
+
+                  // $originalDate = $vaxt;
+                  // $newDate = date("F j, Y,", strtotime($originalDate));
+                  setlocale(LC_TIME, 'az_AZ');
+                  $vaxt= Carbon::parse($a)->formatLocalized('%A %d %B %Y');
+                  $vaxtdan= Carbon::parse($b)->formatLocalized('%A %d %B %Y');
+
+
+
+
+                    $turBasket = Tour::with('Basket')->get();
+
+
+
+
+                                  return view('dizayn.xeberardi', compact('tourlink','photos','turBasket','vaxt','vaxtdan'));
                 }
 
         }
@@ -28,23 +50,78 @@ class linksController extends Controller
 
           if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
-            $tourindex = Tour::all();
-
-                            return view('dizayn.index', compact('tourindex'));
+            $tourindex = Tour::orderBy('id', 'desc')->paginate(12);
+             $slide = Tour::orderBy('id', 'desc')->limit(5)->get();
+                            return view('dizayn.index', compact('tourindex' , 'slide'));
           }
 
         }
 
 
-        public function test(){
+        public function addtobasket(Request $request,$tourid,$userid){
 
-          $test = Tour::with('Basket')->get();
-
-          dd($test);
+              $tap = Tour::find($tourid);
 
 
 
-              return view('dizayn.test',compact('test'));
+
+              $saxla =   $tap->basket()->create([
+
+                      'tour_id' => $tourid,
+                      'user_id' => $userid,
+
+                  ]);
+
+
+
+              return back()->with('saxla',$saxla);
 
         }
+
+
+        public function tourbuy(){
+
+              $buy = Tour::with('Basket')->get();
+
+            return view('tours.tourbuy',compact('buy'));
+
+        }
+
+        public function tourdel($id){
+
+              $del = Basket::find($id);
+
+              $del->delete();
+
+            return back();
+
+        }
+
+
+
+        // public function test(){
+        //
+        //
+        //     $all = Tour::select('start')->where('id','=',22)->get();
+        //
+        //     //$all->start;
+        //
+        //
+        //
+        //     //dd($interval->format('%d'));
+        //
+        //     return view('dizayn.test',compact('a'));
+        //
+        //
+        // }
+
+
+
+
+
+
+
+
+
+
 }

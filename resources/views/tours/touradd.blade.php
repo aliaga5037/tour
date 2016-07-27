@@ -31,7 +31,7 @@ width: 50%;
 }
 </style>
 <div style="margin-left:35%;" class="">
-	<form class="" action="{{ url("$id/tours") }}" method="post" >
+	<form class="" action="{{ url("$id/tours") }}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<label style="color:black;" for="ad">Turun adı</label>
 		<input type="text" id="ad"  name="tourName" value="{{ old('tourName') }}" required>
@@ -54,6 +54,8 @@ width: 50%;
 		<label style="color:black;" for="hotel">Hotel</label>
 		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
 
+		<input type="hidden" nqme="_token" value="{{ csrf_token() }}">
+		<input type="file" name="image">
 
 
 		<label style="color:black;" for="about">Tur haqqında</label>

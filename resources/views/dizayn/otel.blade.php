@@ -1,5 +1,8 @@
 @extends('layouts.dizayn')
-@section('basliq');
+@section('basliq')
+@if (auth()->guard()->guest() && auth()->guard('company')->guest())
+        <a href="/login" class="login">Giriş</a>
+        @endif
 <h2>Öz mənzərəni KƏŞF ET</h2>
 @endsection
 @section('content')
@@ -45,12 +48,26 @@
 <!-- Results -->
 <ul class="results_wide grid_8">
 
+  
+  @foreach ($tours as $tour)
+  
   <li>
-    <a href="hotel.html" class="thumb"><img src="dizayn/img/8.jpg" alt="" /></a>
-    <h3><a href="hotel.html">Marina Bay Sands</a></h3>
-    <span class="price">40 €</span>
+    <a href="/tours/{{ $tour->latin }}" class="thumb"><img src="
+     @if (count($tour->photos) != 0)
+      
+      {{ $tour->photos->first()->file_path }}
+
+      @else
+
+      /dizayn/img/8.jpg
+
+      @endif
+    
+    " alt="" style="width:220px;height:100px;" /></a>
+    <h3><a href="/tours/{{ $tour->latin }}">{{ $tour->hotel }}</a></h3>
+    <span class="price">{{ $tour->price }} AZN</span>
     <div>
-      <span><a href="#">Singapore</a></span>
+      <span><a href="/tours/{{ $tour->latin }}">{{ $tour->country }}</a></span>
       <span class="stars">
         <img src="dizayn/img/star_full.png" alt="" />
         <img src="dizayn/img/star_full.png" alt="" />
@@ -60,54 +77,18 @@
       </span>
       <span>All inclusive</span>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum nunc at mauris condimentum rhoncus. Proin fermentum ligula vitae elit laoreet a ullamcorper lorem cursus.</p>
+    <br>
+    <p style="overflow:hidden;">{{ $tour->about }}</p>
   </li>
 
-  <li>
-    <a href="hotel.html" class="thumb"><img src="dizayn/img/9.jpg" alt="" /></a>
-    <h3><a href="hotel.html">Hotel Palma</a></h3>
-    <span class="price">40 €</span>
-    <div>
-      <span><a href="#">Mallorca, Spain</a></span>
-      <span class="stars">
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_half.png" alt="" />
-        <img src="dizayn/img/star_empty.png" alt="" />
-      </span>
-      <span>All inclusive</span>
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum nunc at mauris condimentum rhoncus. Proin fermentum ligula vitae elit laoreet a ullamcorper lorem cursus.</p>
-  </li>
-
-  <li>
-    <a href="hotel.html" class="thumb"><img src="dizayn/img/13.jpg" alt="" /></a>
-    <h3><a href="hotel.html">Holiday Inn</a></h3>
-    <span class="price">40 €</span>
-    <div>
-      <span><a href="#">Cannes, France</a></span>
-      <span class="stars">
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_full.png" alt="" />
-        <img src="dizayn/img/star_half.png" alt="" />
-        <img src="dizayn/img/star_empty.png" alt="" />
-      </span>
-      <span>All inclusive</span>
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum nunc at mauris condimentum rhoncus. Proin fermentum ligula vitae elit laoreet a ullamcorper lorem cursus.</p>
-  </li>
+  @endforeach
 
 </ul>
 
 <div class="clearfix"></div>
 
 <!-- Pagination -->
-<nav class="grid_8 prefix_4">
-  <a href="#" class="previous">Previous</a>
-  <a href="#" class="next">Next</a>
-</nav>
+<div class="text-center"> {{ $tours->render() }}</div>
 
 
 @endsection

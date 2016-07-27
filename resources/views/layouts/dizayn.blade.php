@@ -85,7 +85,7 @@
 							@if (auth()->guard('company')->user())
 							<li><a href="/{{auth()->guard('company')->user()->id}}/tours">Mənim Turlarım</a></li>
 							@elseif(Auth::user())
-							<li><a href="/{{Auth::user()->id}}/tours">Aldığım Turlar</a></li>
+							<li><a href="/tours/tourbuy/{{Auth::user()->id}}">Aldığım Turlar</a></li>
 							@endif
 							@if (auth()->guard('company')->user())
 								<li><a href="/companylogout">Çıxış</a></li>

@@ -74,14 +74,19 @@ Route::get('/companyreg', function () {
 
 Route::get('/tours/{link}','linksController@tourlink');
 
+Route::post('/tours/{link}/{id}','linksController@addtobasket');
+
+Route::get('/tours/tourbuy/{id}','linksController@tourbuy');
+Route::delete('/tours/tourbuy/{id}','linksController@tourdel');
 
 
+Route::get('/test','linksController@test');
 
 Route::get('/elaqe', function () {
     return view('dizayn.elaqe');
 });
 
-Route::get('/test','linksController@test');
+
 
 
 

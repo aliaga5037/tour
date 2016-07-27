@@ -14,7 +14,11 @@
 	.table-bordered>tbody>tr>td{
 		border: 1px solid black!important;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 4f428a5437a4fe719cc58a816bc20b24f457626c
 	a:hover, a:focus {
 color: #fff;
 text-decoration: none;

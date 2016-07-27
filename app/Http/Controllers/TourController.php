@@ -14,6 +14,12 @@ use Image;
 
 use Illuminate\Http\UploadedFile;
 
+use Carbon\Carbon;
+
+use Input;
+
+
+
 class TourController extends Controller
 {
     /**
@@ -63,6 +69,10 @@ class TourController extends Controller
           'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sch', 'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya', '"' => "1",'/'=>"", ':'=>'-','?'=>'1');
 
             $latinad = strtolower(strtr($request['tourName'], $unwanted_array));
+
+            $datetime1 = new Carbon($request->start);
+            $datetime2 = new Carbon($request->end);
+            $interval = $datetime1->diff($datetime2)->format('%a');
             $down = array(
 
 
@@ -73,18 +83,37 @@ class TourController extends Controller
               'price' => $request['price'],
               'flyPoint' => $request['flyPoint'],
               'about' => $request['about'],
-
+              'days' => $interval,
               'latin' => $latinad,
               'hotel' => $request['hotel'],
 
             );
 
 
+
+
+
             $comp->tours()->create($down);
 
+            $tur = Tour::find($comp->tours->last()->id);
 
+            if ($request->hasFile('image')) {
 
-        return redirect("/$id/tours");
+            $avatar = $request->file('image');
+            $filename = time() . '.' . $avatar->getClientOriginalName();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/images/'.$filename));
+
+                $image =  $tur->photos()->create([
+                    'file_name' => $filename,
+                    'file_size' => $avatar->getClientSize(),
+                    'file_mime' => $avatar->getClientMimeType(),
+                    'file_path' => '/uploads/images/'.$filename,
+                    'tour_id' => $tur->id,
+                    'company_id' => auth()->guard('company')->user()->id
+
+                ]);
+          }
+               return redirect("/$id/tours");
     }
 
     /**

@@ -74,7 +74,7 @@ label{
 
 
         <label style="color:black;" for="sirketil">Şirkətin yarandığı il</label>
-        <input type="text" name="companyDate" class="date" value="" />
+        <input type="date" name="companyDate"  value="" />
 
         <label style="color:black;" for="sirketab">Şirkətin haqqında</label>
         <textarea name="companyAbout" id="sirketab" ></textarea>

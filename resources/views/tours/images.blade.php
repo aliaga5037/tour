@@ -17,7 +17,7 @@
 	.add{
 		width: 50%;
 	}
-	a:hover, a:focus {
+	 a:hover, a:focus {
 color: #fff;
 text-decoration: none;
 }
@@ -40,7 +40,7 @@ text-decoration: none;
 				<tr>
 					<td><img src="{{ $image->file_path }}" alt=""></td>
 					<td>
-						<form action="{{url("/$tour->id/images/$image->id")}}" method="POST">
+						<form action="{{url("/$image->company_id/images/$image->id")}}" method="POST">
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<input type="hidden" name="_method" value="DELETE" >
 							<input type="submit" class="btn btn-danger" value="Sil">
