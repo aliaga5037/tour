@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->share('tours', Tour::orderBy('id', 'desc')
+        view()->share('tours', Tour::where('onoff' , 1)->orderBy('id', 'desc')
                 ->paginate(12));
     }
 

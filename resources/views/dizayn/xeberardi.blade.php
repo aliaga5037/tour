@@ -26,19 +26,25 @@
 
 			<!-- Slider content -->
 			<div class="slider_content">
-					@foreach ($tourlink->photos as $image)
-						{{-- expr --}}
 
-				@if (count($tourlink->photos) == 0)
+
+			@if (count($photos) == 0)
+
+
+
+
+
 					<a href="/dizayn/img/1.jpg">
 					<img src="/dizayn/img/1.jpg" alt="" />
 				</a>
 				@else
+				@foreach ($photos as $image)
 				<a href="{{ $image->file_path }} ">
 					<img src="{{ $image->file_path }} " alt="" />
 				</a>
-				@endif
 				@endforeach
+				@endif
+
 
 			</div>
 

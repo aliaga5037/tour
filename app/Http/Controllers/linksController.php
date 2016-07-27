@@ -21,7 +21,7 @@ class linksController extends Controller
       public function tourlink($link){
                 if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
-                  $tourlink = Tour::where('latin', $link)->first();
+                  $tourlink = Tour::where(['latin'=> $link , 'onoff' => 1])->first();
                   $photos = $tourlink->photos->all();
 
                   $a = $tourlink->start;
@@ -50,7 +50,7 @@ class linksController extends Controller
 
           if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
-            $tourindex = Tour::orderBy('id', 'desc')->paginate(12);
+            $tourindex = Tour::where('onoff' , 1)->orderBy('id', 'desc')->paginate(12);
              $slide = Tour::orderBy('id', 'desc')->limit(5)->get();
                             return view('dizayn.index', compact('tourindex' , 'slide'));
           }

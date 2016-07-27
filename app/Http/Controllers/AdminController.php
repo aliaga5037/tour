@@ -9,6 +9,8 @@ use Auth;
 use App\Company;
 use Mail;
 
+use App\Tour;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -24,7 +26,7 @@ class AdminController extends Controller
     {
       if(auth()->guard('admin')->user() or auth()->guard('')->user() or auth()->guard('company')->user() ){
 
-            return view('dizayn.index');
+            return redirect('/');
 
       }
 
@@ -105,5 +107,14 @@ class AdminController extends Controller
 
             return redirect('admin/companylist');
 
+    }
+
+    public function tours($id)
+    {
+
+      $company = Company::findOrFail($id);
+      $tour = $company->tours;
+
+      return view('admin.turs',compact('company','tour'));
     }
 }

@@ -11,6 +11,7 @@ Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin/admin','AdminController@index');
 
   Route::get('/admin/companylist','AdminController@companyList');
+  Route::get('/admin/{company}/tours','AdminController@tours');
   Route::put('/admin/companylist/{id}','AdminController@companyListPost');
 
 
