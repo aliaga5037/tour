@@ -11,7 +11,8 @@ Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin/admin','AdminController@index');
 
   Route::get('/admin/companylist','AdminController@companyList');
-  Route::get('/admin/{company}/tours','AdminController@tours');
+  Route::get('/admin/{company}/tours','AdminController@tourList');
+  Route::put('/admin/tour/{id}','AdminController@tourListPost');
   Route::put('/admin/companylist/{id}','AdminController@companyListPost');
 
 
@@ -92,3 +93,10 @@ Route::get('/elaqe', function () {
 
 
 Route::auth();
+
+
+Route::get('/{id}/profile' , 'UserController@profile');
+Route::get('/{id}/profile/edit' , 'UserController@edit');
+Route::put('/{id}/profile' , 'UserController@update');
+Route::delete('/{id}/profile/destroy' , 'UserController@destroy');
+

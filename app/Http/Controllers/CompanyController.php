@@ -122,7 +122,9 @@ class CompanyController extends Controller
 
       return  Redirect::to('/companyreg')->with('message', 'Siz qeydiyyatdan keçdiniz,adminstrasiya tərəfindən yoxlanışdan sonra sizə bildiri. gelecek');
     }
-    public function tours(Company $company)
+
+
+    public function tours(Company $company , $id)
     {
       
       return view('auth.tours')->with('company',$company);

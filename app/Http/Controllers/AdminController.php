@@ -109,12 +109,36 @@ class AdminController extends Controller
 
     }
 
-    public function tours($id)
+    public function tourList($id)
     {
 
       $company = Company::findOrFail($id);
       $tour = $company->tours;
 
       return view('admin.turs',compact('company','tour'));
+    }
+
+    public function tourListPost(Request $request,$id){
+
+
+
+
+            $data = $request->input();
+            $tour = Tour::find($id);
+            $sirketMail = $tour->company->email;
+
+            $tour ->onoff = 1;
+
+            $tour ->save();
+              Mail::send('mail',[],function($mail) use($sirketMail) {
+
+                $mail->to($sirketMail)->subject('tesdiqlendi');
+              });
+
+
+
+
+            return back();
+
     }
 }
