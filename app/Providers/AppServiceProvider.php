@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Tour;
+use App\Category;
+use App\AltCategory;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share('tours', Tour::where('onoff' , 1)->orderBy('id', 'desc')
                 ->paginate(12));
+        view()->share('esascat', Category::all());
     }
 
     /**
