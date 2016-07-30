@@ -17,7 +17,7 @@
 	.add{
 		width: 50%;
 	}
-	 a:hover, a:focus {
+	#panel a:hover,#panel a:focus {
 color: #fff;
 text-decoration: none;
 }

@@ -17,6 +17,8 @@ Route::group(['middleware'=>'admin'],function(){
 
   Route::resource('/category' , 'CategoryController');
   Route::resource('{id}/altcategory' , 'AltCategoryController');
+  Route::get('{id}/content' , 'AltCategoryController@content');
+  Route::patch('{id}/content' , 'AltCategoryController@contentStore');
 
 
 });
@@ -85,6 +87,7 @@ Route::get('/companyreg', function () {
     return view('dizayn.companyreg');
 });
 
+Route::get('/cat/{link}' , 'linksController@link');
 
 Route::get('/tours/{link}','linksController@tourlink');
 

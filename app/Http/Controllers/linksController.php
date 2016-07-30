@@ -12,6 +12,8 @@ use App\Tour;
 
 use App\Basket;
 
+use App\AltCategory;
+
 use DB;
 
 use Carbon\Carbon;
@@ -95,6 +97,13 @@ class linksController extends Controller
 
             return back();
 
+        }
+
+        public function link($link)
+        {
+
+          $alt = AltCategory::where('catName' , $link)->first();
+          return view('test.test', compact('alt'));
         }
 
 

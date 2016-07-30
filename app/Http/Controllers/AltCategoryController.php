@@ -104,4 +104,20 @@ class AltCategoryController extends Controller
 
         return back();
     }
+
+
+    public function content($id)
+    {
+        $alt = AltCategory::findOrFail($id);
+        return view('category.content' , compact('alt'));
+    }
+
+    public function contentStore(Request $request , $id)
+    {
+        $alt = AltCategory::findOrFail($id);
+        $alt->update([
+            'content' => $request['content']
+            ]);
+        return redirect("/$alt->category_id/altcategory");
+    }
 }

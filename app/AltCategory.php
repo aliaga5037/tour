@@ -8,7 +8,7 @@ use App\Category;
 
 class AltCategory extends Model
 {
-    protected $fillable = ['catName'];
+    protected $fillable = ['catName' , 'content'];
     public $timestamps = false;
 
     public function cat()

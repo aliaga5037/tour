@@ -22,6 +22,7 @@
         <table class="table table-hover">
           <tr>
             <th>Alt kateqorıyanın adı</th>
+            <th>Kontent</th>
             <th>Editlə</th>
             <th>Sil</th>
           </tr>
@@ -30,6 +31,7 @@
          
           <tr>
             <td>{{ $alt->catName }}</td>
+            <td><a href="/{{ $alt->id }}/content">content</a></td>
             <td><a href="/{{ $cat->id }}/altcategory/{{ $alt->id }}/edit" class="btn btn-primary">Editlə</a></td>
             <td>
             	<form action="{{ url("$cat->id/altcategory/$alt->id") }}" method="post">

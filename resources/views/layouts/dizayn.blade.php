@@ -68,7 +68,7 @@
 						<a href="#">{{ $esas->cat_name }}</a>
 						<ul>
 						@foreach ($esas->alt as $alt)
-							<li><a href="#">{{ $alt->catName }}</a></li>
+							<li><a href="/cat/{{ $alt->catName }}">{{ $alt->catName }}</a></li>
 							@endforeach
 						</ul>
 					</li>
