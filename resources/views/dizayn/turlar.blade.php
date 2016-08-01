@@ -19,9 +19,20 @@
 color: #fff;
 text-decoration: none;
 }
+
+input[type=date]{
+  margin-bottom: 0;
+position: relative;
+top: -25px;
+opacity: 0;
+float: left;
+}
+.date{
+  margin-bottom: 0;
+}
 </style>
 
-<section class="filter grid_12">
+<section class="filter grid_12" style="padding: 15px 60px;">
     <form action="#" class="black">
 
       <div class="full">
@@ -35,9 +46,18 @@ text-decoration: none;
       </div>
 
       <div class="half">
-        <label>Uçuş tarixi</label>
-        <input type="text" name="date" class="date" value="11/23/2011" />
-      </div>
+          <label>Uçuş tarixi</label>
+          <input type="text" class="date">
+          <input type="date" class="s" id="search-input-start" name='start'>
+        </div>
+        <script>
+          jQuery(document).ready(function($) {
+            $('.s').change(function(event) {
+              var a = $('.s').val();
+              $('.date').val(a);
+            });
+          });
+        </script>
 
       <div class="half">
         <label>Böyüklər</label>

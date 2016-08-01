@@ -33,8 +33,12 @@
 	<script src="/dizayn/js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="/dizayn/js/script.js"></script>
 	<script src="/dizayn/js/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="/dizayn/js/sear.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
 
 </head>
 <body>
@@ -108,7 +112,7 @@
 				</ul>
 
 				<!-- Search -->
-				<form action="#" class="black">
+				<form action="" method="POST" class="black">
 					<input name="search" type="text" placeholder="Axtarış..." />
 					<input type="submit" />
 				</form>
@@ -153,6 +157,7 @@
 
 	</div></footer>
 
+	
 
 	<!-- Google Analytics -->
 	<script type="text/javascript">

@@ -51,7 +51,15 @@ label{
     
   }
 
-
+input[type=date]{
+  margin-bottom: 0;
+position: relative;
+top: -25px;
+opacity: 0;
+}
+.date{
+  margin-bottom: 0;
+}
 
 </style>
 
@@ -74,7 +82,18 @@ label{
 
 
         <label style="color:black;" for="sirketil">Şirkətin yarandığı il</label>
-        <input type="date" name="companyDate"  value="" />
+        <input type="text" class="date" required>
+        <input type="date" name="companyDate"  class="s" value="" required />
+
+        <script>
+          jQuery(document).ready(function($) {
+            $('.s').change(function(event) {
+              var a = $('.s').val();
+              $('.date').val(a);
+            });
+          });
+        </script>
+
 
         <label style="color:black;" for="sirketab">Şirkətin haqqında</label>
         <textarea name="companyAbout" id="sirketab" ></textarea>
