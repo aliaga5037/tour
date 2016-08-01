@@ -82,7 +82,8 @@ Route::get('/tours/tourbuy/{id}','linksController@tourbuy');
 Route::delete('/tours/tourbuy/{id}','linksController@tourdel');
 
 
-Route::get('/test','linksController@test');
+Route::get('/test','linksController@search');
+Route::post('/','linksController@searchPost');
 
 Route::get('/elaqe', function () {
     return view('dizayn.elaqe');
@@ -99,4 +100,3 @@ Route::get('/{id}/profile' , 'UserController@profile');
 Route::get('/{id}/profile/edit' , 'UserController@edit');
 Route::put('/{id}/profile' , 'UserController@update');
 Route::delete('/{id}/profile/destroy' , 'UserController@destroy');
-

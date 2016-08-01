@@ -100,44 +100,46 @@ text-decoration: none;
 
 			<h2>
 				<span data-form="find_trip" class="selected">Turlar</span>
-				<span data-form="find_hotel">Otellər</span>
+				<span data-form="find_hotel">Ətraflı Axtarış</span>
 
 			</h2>
 
 			<!-- Find a trip form -->
-			<form action="#" data-form="find_trip" class="black">
+			<form action="#" method="GET" data-form="find_trip" class="black">
 
 				<label>Uçuş nöqtəsi</label>
-				<input type="text" name="destination" value="All" />
+				<input type="text" id="search-input" name="ucus_noqtesi" value="" />
 
 				<div class="half">
 					<label>Ölkə</label>
-					<input type="text" name="transportation" value="Plane" />
+					<input type="text" id="search-input-olke" name="olke" value="" />
 				</div>
 
 				<div class="half last">
 					<label>Səfərin başlama tarixi</label>
-					<input type="text" name="date" class="date" value="11/23/2011" />
+					<input type="date" id="search-input-start" name="start"  value="" />
 				</div>
 
 				<div class="half">
-					<label>Böyüklər</label>
-					<input type="text" name="guests" value="2" />
+					<label>Gün Sayı</label>
+					<input type="text" id="search-input-days" name="days" value="" />
 				</div>
 
 
 
 				<div class="half last">
-					<label>Uşaqlar</label>
-					<input type="text" name="rooms" value="1" />
+					<label>Qiymət-dək</label>
+					<input type="text" id="search-input-price" name="price" value="" />
 				</div>
 
-				<input type="submit" value="Axtar">
+
 
 			</form>
 
+			<button style="margin-left:20px" onclick="getSer()">Axtar</button>
+
 			<!-- Find a hotel form -->
-			<form action="#" data-form="find_hotel" class="black" style="display:none;">
+			<!-- <form action="#" data-form="find_hotel" class="black" style="display:none;">
 
 				<label>Ölkə</label>
 				<input type="text" name="destination" value="All" />
@@ -164,7 +166,7 @@ text-decoration: none;
 
 				<input type="submit" value="Axtar">
 
-			</form>
+			</form> -->
 
 
 		</section>
@@ -179,62 +181,67 @@ text-decoration: none;
 					<th>Müddət</th>
 					<th>Qiymət</th>
 				</tr>
-				<tr>
-					<td><a href="browse.html">Spain</a></td>
-					<td>Hotel Grand 5*</td>
-					<td>13 Oct - 25 Oct</td>
-					<td>12 nights</td>
-					<td><del>1 099 €</del> 899 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">Greece</a></td>
-					<td>Hotel Palma 4*</td>
-					<td>15 Oct - 25 Oct</td>
-					<td>10 nights</td>
-					<td><del>1 099 €</del> 749 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">Italy</a></td>
-					<td>Holiday Inn 4*</td>
-					<td>15 Oct - 25 Oct</td>
-					<td>10 nights</td>
-					<td><del>1 099 €</del> 799 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">Egypt</a></td>
-					<td>Beach Resort 5*</td>
-					<td>18 Oct - 28 Oct</td>
-					<td>9 nights</td>
-					<td><del>1 099 €</del> 799 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">United Kingdom</a></td>
-					<td>Spa & Golf Resort 4*</td>
-					<td>18 Oct - 28 Oct</td>
-					<td>9 nights</td>
-					<td><del>1 099 €</del> 749 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">Thailand</a></td>
-					<td>Welness Resort 5*</td>
-					<td>20 Oct - 29 Oct</td>
-					<td>9 nights</td>
-					<td><del>1 099 €</del> 849 €</td>
-				</tr>
-				<tr>
-					<td><a href="browse.html">Spain</a></td>
-					<td>Hotel Grand 5*</td>
-					<td>25 Oct - 05 Nov</td>
-					<td>11 nights</td>
-					<td><del>1 099 €</del> 899 €</td>
-				</tr>
+				<tbody id="dongu">
+					<!-- <tr>
+						<td id='flyPoint'></td>
+						<td id='hotel'></td>
+						<td id='start-end'></td>
+						<td id='days'></td>
+						<td id='price'></td>
+					</tr> -->
+				</tbody>
+
 			</table>
+
+
 		</section>
+
+
 
 	</section>
 
 	<div class="clearfix"></div>
 	<hr class="dashed grid_12" />
+
+	<script>
+		 function getSer(){
+			 $.ajaxSetup({
+	headers: {
+			'X-CSRF-TOKEN': '<?php echo csrf_token() ?>',
+					}
+			})
+
+
+									$.ajax({
+										 type:'POST',
+										 url:'/',
+										data:{'ucus_noqtesi': $('#search-input').val(),'olke': $('#search-input-olke').val(),
+													'start': $('#search-input-start').val(),
+													'days': $('#search-input-days').val(),
+													'price': $('#search-input-price').val()
+									 },
+
+
+										 success:function(data){
+												$.each(data.ser, function(index, value) {
+
+																$('#dongu').append('<tr><td id="flyPoint"><a href="/tours/'+value.latin+'" >'+value.flyPoint+'</a></td><td id="hotel">'+value.hotel+'</td>	<td id="start-end">'+value.start+'-'+value.end+'</td><td id="days">'+value.days+'</td><td id="price">'+value.price+'</td></tr>');
+
+
+
+												});
+										 }
+
+									});
+
+
+
+
+		 }
+
+		 </script>
+
+
 
 	<!-- Latest blog articles -->
 

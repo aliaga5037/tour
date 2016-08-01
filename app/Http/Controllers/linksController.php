@@ -16,6 +16,8 @@ use DB;
 
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\Input;
+
 class linksController extends Controller
 {
       public function tourlink($link){
@@ -98,23 +100,97 @@ class linksController extends Controller
         }
 
 
+        public function search()
+                  {
 
-        // public function test(){
-        //
-        //
-        //     $all = Tour::select('start')->where('id','=',22)->get();
-        //
-        //     //$all->start;
-        //
-        //
-        //
-        //     //dd($interval->format('%d'));
-        //
-        //     return view('dizayn.test',compact('a'));
-        //
-        //
-        // }
 
+                          $ucus = Input::get('ucus_noqtesi');
+                          $olke = Input::get('olke');
+                          $start = Input::get('start');
+
+                         if(!empty($ucus or $olke or $start)){
+
+                           if($olke){
+
+                             $uc = Tour::where('country', 'LIKE', "%$olke%")->get();
+
+                           }
+
+                           else if($ucus){
+
+                              $uc = Tour::where('flyPoint', 'LIKE', "%$ucus%")->get();
+
+                           }
+
+                           else if(  $start){
+
+                               $uc = Tour::where('start', 'LIKE', "%$start%")->get();
+
+                           }
+
+
+                         }else{
+                             $uc  = 'Heçnə Tapılmadı';
+                        }
+
+
+
+                          return view('dizayn.test',compact('uc'));
+
+
+
+
+                  }
+
+                  public function searchPost(){
+
+                    $ucus = Input::get('ucus_noqtesi');
+                    $olke = Input::get('olke');
+                    $start = Input::get('start');
+                    $days = Input::get('days');
+                    $price = Input::get('price');
+
+
+
+
+                        //  $uc= Tour::where('country', 'LIKE', "%$olke%")->get();
+
+                          if($ucus){
+
+                            $uc = Tour::where('flyPoint', 'LIKE', "%$ucus%")->get();
+
+
+                          }
+
+                          else if($olke){
+
+                            $uc = Tour::where('country', 'LIKE', "%$olke%")->get();
+
+                          }
+
+                          else if($start){
+
+                            $uc = Tour::where('start', 'LIKE', "%$start%")->get();
+
+                          }
+
+                          else if($days){
+
+                            $uc = Tour::where('days', 'LIKE', "%$days%")->get();
+
+                          }
+
+                          else if($price){
+
+                            $uc = Tour::where('price', 'LIKE', "%$price%")->get();
+
+                          }
+                        //$ser = $ucus;
+                        return response()->json(array('ser'=> $uc), 200);
+
+
+
+                  }
 
 
 
