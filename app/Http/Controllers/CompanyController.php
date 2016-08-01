@@ -131,4 +131,49 @@ class CompanyController extends Controller
     }
 
 
+   public function profile($id)
+    {
+
+        $company = Company::findOrFail($id);  
+
+        if (auth()->guard('company')->user()->id != $id) {
+            return back();
+        }
+        return view('auth.companyprofile')->with('company',$company);
+    }
+
+    public function edit($id)
+    {
+      $company = Company::findOrFail($id);
+
+        if (auth()->guard('company')->user()->id != $id) {
+            return back();
+        }
+      return view('user.companyedit')->with('company',$company);
+    }
+
+    public function update(Request $request,$id)
+    {
+      $company = Company::findOrFail($id);
+      
+        if (auth()->guard('company')->user()->id != $id) {
+            return back();
+        }
+        $company->update($request->all());
+      return redirect("/profile/$id");
+    }
+
+    public function destroy(Request $request,$id)
+    {
+      $company = Company::findOrFail($id);
+      
+        if (auth()->guard('company')->user()->id != $id) {
+            return back();
+        }
+
+        $company->delete();
+      return redirect("/");
+    }
+
+
 }

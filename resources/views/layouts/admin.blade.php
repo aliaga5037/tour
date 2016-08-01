@@ -42,7 +42,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="/" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>T</span>
       <!-- logo for regular state and mobile devices -->
@@ -65,7 +65,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -87,7 +87,7 @@
       <ul class="sidebar-menu">
         <li class="header">Menu</li>
         <li class="active treeview">
-          <a href="#">
+          <a href="/admin/admin">
             <i class="fa fa-dashboard"></i> <span>Əsas</span>
 
           </a>
@@ -106,6 +106,27 @@
 
             <li><a href="/admin/companylist"><i class="fa fa-circle-o"></i> Şirkətlər</a></li>
           </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Kateqoriyalar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/category"><i class="fa fa-circle-o"></i>Əsas kateqoriyalar</a></li>
+          </ul>
+        </li>
+
+          <li class="treeview">
+          <a href="/admin/adminlogout">
+            <i class="fa fa-share"></i> <span>Çıxış</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
         </li>
 
       </ul>
