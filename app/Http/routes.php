@@ -96,6 +96,7 @@ Route::post('/tours/{link}/{id}','linksController@addtobasket');
 Route::get('/tours/tourbuy/{id}','linksController@tourbuy');
 Route::delete('/tours/tourbuy/{id}','linksController@tourdel');
 
+Route::get('/search','linksController@search');
 
 Route::get('/test','linksController@search');
 Route::post('/','linksController@searchPost');

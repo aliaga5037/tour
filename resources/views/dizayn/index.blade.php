@@ -135,7 +135,7 @@ text-decoration: none;
 					<input type="text" id="search-input-price" name="price" value="" />
 				</div>
 
-					<input type="button" name="name"   onclick="return false , getSer()" value="Axtar">
+					<input type="submit" name="name"   onclick="getSer();return false" value="Axtar">
 
 			</form>
 
@@ -206,15 +206,14 @@ text-decoration: none;
 	<div class="clearfix"></div>
 	<hr class="dashed grid_12" />
 
-	<script>
-		 function getSer(){
-			 $.ajaxSetup({
-	headers: {
-			'X-CSRF-TOKEN': '<?php echo csrf_token() ?>',
-					}
-			})
+<script>
+		 function getSer(word){
 
-
+							 $.ajaxSetup({
+											headers: {
+													'X-CSRF-TOKEN': '<?php echo csrf_token() ?>',
+															}
+							})
 									$.ajax({
 										 type:'POST',
 										 url:'/',
@@ -224,25 +223,16 @@ text-decoration: none;
 													'price': $('#search-input-price').val()
 									 },
 
-
 										 success:function(data){
+											 $('#dongu').empty();
 												$.each(data.ser, function(index, value) {
-
 																$('#dongu').append('<tr><td id="flyPoint"><a href="/tours/'+value.latin+'" >'+value.flyPoint+'</a></td><td id="hotel">'+value.hotel+'</td>	<td id="start-end">'+value.start+'-'+value.end+'</td><td id="days">'+value.days+'</td><td id="price">'+value.price+'</td></tr>');
-
-
-
 												});
 										 }
-
 									});
-
-
-
-
+										return false;
 		 }
-
-		 </script>
+</script>
 
 
 

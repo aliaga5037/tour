@@ -113,38 +113,9 @@ class linksController extends Controller
                   {
 
 
-                          $ucus = Input::get('ucus_noqtesi');
-                          $olke = Input::get('olke');
-                          $start = Input::get('start');
-
-                         if(!empty($ucus or $olke or $start)){
-
-                           if($olke){
-
-                             $uc = Tour::where('country', 'LIKE', "%$olke%")->get();
-
-                           }
-
-                           else if($ucus){
-
-                              $uc = Tour::where('flyPoint', 'LIKE', "%$ucus%")->get();
-
-                           }
-
-                           else if(  $start){
-
-                               $uc = Tour::where('start', 'LIKE', "%$start%")->get();
-
-                           }
 
 
-                         }else{
-                             $uc  = 'Heçnə Tapılmadı';
-                        }
-
-
-
-                          return view('dizayn.test',compact('uc'));
+                          return view('dizayn.search');
 
 
 
@@ -171,25 +142,25 @@ class linksController extends Controller
 
                           }
 
-                          else if($olke){
+                            if($olke){
 
                             $uc = Tour::where('country', 'LIKE', "%$olke%")->get();
 
                           }
 
-                          else if($start){
+                          if($start){
 
                             $uc = Tour::where('start', 'LIKE', "%$start%")->get();
 
                           }
 
-                          else if($days){
+                          if($days){
 
                             $uc = Tour::where('days', 'LIKE', "%$days%")->get();
 
                           }
 
-                          else if($price){
+                          if($price){
 
                             $uc = Tour::where('price', 'LIKE', "%$price%")->get();
 
