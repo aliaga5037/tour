@@ -14,11 +14,6 @@
 	.table-bordered>tbody>tr>td{
 		border: 1px solid black!important;
 	}
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 4f428a5437a4fe719cc58a816bc20b24f457626c
 	a:hover, a:focus {
 color: #fff;
 text-decoration: none;
@@ -57,21 +52,6 @@ text-decoration: none;
 		</div>
 	</form>
 </div>
-<script>
-// 	function readURL(input) {
-// if (input.files && input.files[0]) {
-// var reader = new FileReader();
-// reader.onload = function (e) {
-// $('#blah')
-// .attr('src', e.target.result)
-// .width(150)
-// .height(200)
-// .css("display", "block");
-// };
-// reader.readAsDataURL(input.files[0]);
-// }
-// 	}
-</script>
 <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript">
  $("#imageupload").on('change', function () {
