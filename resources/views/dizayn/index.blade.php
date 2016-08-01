@@ -135,11 +135,11 @@ text-decoration: none;
 					<input type="text" id="search-input-price" name="price" value="" />
 				</div>
 
-
+					<input type="button" name="name"   onclick="return false , getSer()" value="Axtar">
 
 			</form>
 
-			<button style="margin-left:20px" onclick="getSer()">Axtar</button>
+
 
 			<!-- Find a hotel form -->
 			<!-- <form action="#" data-form="find_hotel" class="black" style="display:none;">
