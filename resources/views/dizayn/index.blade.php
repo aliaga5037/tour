@@ -120,8 +120,17 @@ text-decoration: none;
 
 				<div class="half last">
 					<label>Səfərin başlama tarixi</label>
-					<input type="text" name="date" class="date" value="11/23/2011" />
+					<input type="text" name="date" class="date" value="" />
 				</div>
+
+				<script>
+					jQuery(document).ready(function($) {
+						$('.date').change(function(event) {
+							var a = $('.date').val()
+							alert(a.split('/'));
+						});
+					});
+				</script>
 
 				<div class="half">
 					<label>Böyüklər</label>
