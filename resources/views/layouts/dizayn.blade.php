@@ -65,16 +65,23 @@
 
 						</ul>
 					</li>
-					<!-- <li>
-						<a href="faq.html">Pages</a>
+					@foreach ($esascat as $esas)
+						{{-- expr --}}
+					
+					<li>
+						<a href="#">{{ $esas->cat_name }}</a>
 						<ul>
-							<li><a href="faq.html">FAQ</a></li>
-							<li><a href="forms.html">Forms</a></li>
+						@foreach ($esas->alt as $alt)
+							<li><a href="/cat/{{ $alt->catName }}">{{ $alt->catName }}</a></li>
+							@endforeach
 						</ul>
-					</li> -->
+					</li>
+					@endforeach
 					<li>
 						<a href="/elaqe">Əlaqə</a>
 					</li>
+					
+
 					<li>
 						@if (auth()->guard('company')->guest() && Auth::guest())
 						<a href="#">Qeydiyyat</a>
@@ -85,10 +92,12 @@
 						@elseif(auth()->guard('company')->user() || auth()->guard('')->user())
 						<a href="#">Məlumat</a>
 						<ul>
-							<li><a href="/{{ Auth::user()->id }}/profile">Profil</a></li>
+							
 							@if (auth()->guard('company')->user())
+							<li><a href="/profile/{{ auth()->guard('company')->user()->id }}">Profil</a></li>
 							<li><a href="/{{auth()->guard('company')->user()->id}}/tours">Mənim Turlarım</a></li>
 							@elseif(Auth::user())
+							<li><a href="/{{ Auth::user()->id }}/profile">Profil</a></li>
 							<li><a href="/tours/tourbuy/{{Auth::user()->id}}">Aldığım Turlar</a></li>
 							@endif
 							@if (auth()->guard('company')->user())

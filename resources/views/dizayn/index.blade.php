@@ -11,6 +11,8 @@
 
 
 
+@if (count($slide) != 0)
+	{{-- expr --}}
 
 <!-- Slider navigation -->
 <nav class="slider_nav">
@@ -37,6 +39,7 @@
 
 <div class="clearfix"></div>
 </div>
+@endif
 @endsection
 @section('content')
 <style>

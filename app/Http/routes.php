@@ -15,6 +15,11 @@ Route::group(['middleware'=>'admin'],function(){
   Route::put('/admin/tour/{id}','AdminController@tourListPost');
   Route::put('/admin/companylist/{id}','AdminController@companyListPost');
 
+  Route::resource('/category' , 'CategoryController');
+  Route::resource('{id}/altcategory' , 'AltCategoryController');
+  Route::get('{id}/content' , 'AltCategoryController@content');
+  Route::patch('{id}/content' , 'AltCategoryController@contentStore');
+
 
 });
 
@@ -31,8 +36,12 @@ Route::group(['middleware'=>'company'],function(){
 
     Route::get('/company', 'CompanyController@index');
     Route::resource('/{id}/tours', 'TourController');
-
     Route::resource('/{id}/images' , 'ImageController');
+
+    Route::get('/profile/{id}' , 'CompanyController@profile');
+    Route::get('/profile/{id}/edit' , 'CompanyController@edit');
+    Route::put('/profile/{id}' , 'CompanyController@update');
+    Route::delete('/profile/{id}/destroy' , 'CompanyController@destroy');
 
 });
 
@@ -56,6 +65,11 @@ Route::get('/companyRegister', function () {
 
 Route::get('/','linksController@tourindex');
 
+//   Route::get('/', function()
+// {
+//     return View::make('test.test', array('name' => $tours));
+// });
+
 
 Route::get('/turlar', function () {
     return view('dizayn.turlar');
@@ -73,6 +87,7 @@ Route::get('/companyreg', function () {
     return view('dizayn.companyreg');
 });
 
+Route::get('/cat/{link}' , 'linksController@link');
 
 Route::get('/tours/{link}','linksController@tourlink');
 
