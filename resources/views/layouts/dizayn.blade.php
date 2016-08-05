@@ -67,7 +67,7 @@
 					</li>
 					@foreach ($esascat as $esas)
 						{{-- expr --}}
-					
+
 					<li>
 						<a href="#">{{ $esas->cat_name }}</a>
 						<ul>
@@ -80,7 +80,7 @@
 					<li>
 						<a href="/elaqe">Əlaqə</a>
 					</li>
-					
+
 
 					<li>
 						@if (auth()->guard('company')->guest() && Auth::guest())
@@ -92,7 +92,7 @@
 						@elseif(auth()->guard('company')->user() || auth()->guard('')->user())
 						<a href="#">Məlumat</a>
 						<ul>
-							
+
 							@if (auth()->guard('company')->user())
 							<li><a href="/profile/{{ auth()->guard('company')->user()->id }}">Profil</a></li>
 							<li><a href="/{{auth()->guard('company')->user()->id}}/tours">Mənim Turlarım</a></li>
@@ -157,7 +157,21 @@
 
 	</div></footer>
 
-	
+	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+	 <script>
+	     CKEDITOR.replace( 'ckeditor1', {
+				 		
+	         filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+	         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+	         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+	         filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}',
+	         extraPlugins: 'colorbutton,font,justify,codesnippet,smiley,iframe,print,scayt,templates,find,flash',
+	         skin: 'kama',
+	         language: 'tr',
+	     });
+
+	 </script>
 
 	<!-- Google Analytics -->
 	<script type="text/javascript">

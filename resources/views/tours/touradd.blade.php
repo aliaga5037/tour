@@ -29,6 +29,24 @@ display:block;
 background: white;
 width: 50%;
 }
+
+input[type=date]{
+  margin-bottom: 0;
+position: relative;
+top: -25px;
+opacity: 0;
+}
+.date{
+  margin-bottom: 0;
+}
+.lab{
+	    font-size: 12px;
+    height: 25px;
+    color: black;
+    width: 50%;
+    background: white;
+    border: 1px solid black;
+}
 </style>
 <div style="margin-left:35%;" class="">
 	<form class="" action="{{ url("$id/tours") }}" method="post" enctype="multipart/form-data">
@@ -37,10 +55,32 @@ width: 50%;
 		<input type="text" id="ad"  name="tourName" value="{{ old('tourName') }}" required>
 
 		<label style="color:black;" for="start">Turun başlama tarixi</label>
-		<input type="date" id="start"  	name="start" value="{{ old('start') }}" required>
+
+		<input type="text" class="date" id="datestart" value="{{ old('start') }}" required>
+        <input type="date" id="start" class="s" name="start" value="{{ old('start') }}" required>
+
+        <script>
+          jQuery(document).ready(function($) {
+            $('.s').change(function(event) {
+              var a = $('.s').val();
+              $('#datestart').val(a);
+            });
+          });
+        </script>
 
 		<label style="color:black;" for="end">Turun bitmə tarixi</label>
-		<input type="date" id="end"  	name="end" value="{{ old('end') }}" required>
+
+		<input type="text" class="date" id="dateend" value="{{ old('end') }}" required>
+		<input type="date" id="end"  class="end" 	name="end" value="{{ old('end') }}" required>
+
+		<script>
+          jQuery(document).ready(function($) {
+            $('.end').change(function(event) {
+              var a = $('.end').val();
+              $('#dateend').val(a);
+            });
+          });
+        </script>
 
 		<label style="color:black;" for="country">Ölkə</label>
 		<input type="text" id="country"  name="country" value="{{ old('country') }}" required>
@@ -55,11 +95,13 @@ width: 50%;
 		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
 
 		<input type="hidden" nqme="_token" value="{{ csrf_token() }}">
-		<input type="file" name="image">
+		<label for="himage" class="lab">Şəkil seç</label>
+		<input type="file" id='himage' name="image" style="opacity: 0;">
+
 
 
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea type="text" id="about"  name="about" value="{{ old('about') }}" required></textarea>
+		<textarea  id="ckeditor1" class="miti" name="about" value="{{ old('about') }}" required></textarea>
 
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>

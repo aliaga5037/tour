@@ -65,7 +65,7 @@
 
 		<p>
       @if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest() )
-      {{ $tourlink->about }}
+      {!! $tourlink->about !!}
       @endif
 
     </p>
@@ -111,19 +111,11 @@
 			@if( count($tourlink->basket)==0)
 			<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
 				{{csrf_field()}}
-
-
-
 				<input style="width:300px;" type="submit" value="Səbətə Əlavə Et">
-
 			</form>
 			@endif
 
 			@foreach($tourlink->basket as $tur)
-
-
-
-
 
 		@if( $tur->tour_id != $tourlink->id && $tur->user_id != Auth::user()->id )
 		<form class="" action="{{ url("/tours/$tourlink->id/".Auth::user()->id) }}" method="post">
@@ -157,6 +149,21 @@
 
 			@endforeach
 		@endif
+
+			@if(auth()->guard('')->user() or auth()->guard('company')->user())
+
+			<form class="" action="/online/al" method="post">
+
+				{{csrf_field()}}
+
+
+
+				<input style="width:300px;" type="submit" value="Online Al">
+
+			</form>
+
+			@endif
+
 
 
 	</section>

@@ -53,8 +53,8 @@ width: 50%;
 		<input type="text" id="hotel"  name="hotel" value="{{ $tour->hotel }}" required>
 
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea type="text" id="about"  name="about" value="" required>{{ $tour->about }}</textarea>
-
+		<textarea id="ckeditor1"  name="about" value="" required>{{ $tour->about }}</textarea>
+		
 		<label style="color:black;" for="price">Turun qiyməti</label>
 		<input type="number" id="price"  name="price" value="{{ $tour->price }}" required>
 

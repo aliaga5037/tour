@@ -172,6 +172,11 @@ class linksController extends Controller
 
                   }
 
+                    public function onlineal(){
+
+                          return view('dizayn.personreg');
+
+                    }
 
 
 

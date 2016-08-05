@@ -106,6 +106,9 @@ Route::get('/elaqe', function () {
 });
 
 
+Route::post('/online/al', 'linksController@onlineal');
+
+
 
 
 

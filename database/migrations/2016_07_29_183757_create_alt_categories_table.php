@@ -15,6 +15,7 @@ class CreateAltCategoriesTable extends Migration
         Schema::create('alt_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('catName');
+            $table->string('content');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
