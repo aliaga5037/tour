@@ -12,11 +12,12 @@
       $(function() {
           var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
-            center: new google.maps.LatLng(40.7069, -74.0096),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            center: new google.maps.LatLng(40.377729, 49.854435),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+
           });
           var marker= new google.maps.Marker({
-          position: new google.maps.LatLng(40.7069, -74.0096),
+          position: new google.maps.LatLng(40.377729, 49.854435),
           map: map
         });
       });

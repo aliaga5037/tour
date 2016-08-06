@@ -98,7 +98,7 @@ opacity: 0;
 					<input type="text" id="search-input-olke" name="olke" value="" />
 				</div>
 				<div class="half last">
-					<label>Səfərin başlama tarixi</label>
+					<label for="search-input-start">Səfərin başlama tarixi</label>
 					<input type="text" class="date">
 					<input type="date" class="s" id="search-input-start" name='start'>
 				</div>

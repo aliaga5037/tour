@@ -28,15 +28,18 @@
 	<script src="/dizayn/js/modernizr-2.0.min.js"></script>
 
 	<!-- Load JavaScript -->
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="/dizayn/js/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 	<script src="/dizayn/js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="/dizayn/js/script.js"></script>
 	<script src="/dizayn/js/jquery.fancybox-1.3.4.pack.js"></script>
-		<script src="/dizayn/js/sear.js"></script>
+	<script src="/dizayn/js/sear.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbUV2kQt9cIBjNyHlFi3Hi3cMdIusLh6Y"
+  type="text/javascript"></script>
 
 
 
