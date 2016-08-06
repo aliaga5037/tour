@@ -101,7 +101,7 @@ opacity: 0;
 
 
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea type="text" id="about"  name="about" value="{{ old('about') }}" required></textarea>
+		<textarea  id="ckeditor1" class="miti" name="about" value="{{ old('about') }}" required></textarea>
 
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>

@@ -118,7 +118,11 @@ opacity: 0;
 					<label>Qiymət-dək</label>
 					<input type="text" id="search-input-price" name="price" value="" />
 				</div>
-				<input type="submit"  onclick="getSer();return false" value="Axtar">
+
+
+					<input type="submit" name="name"   onclick="getSer();return false" value="Axtar">
+
+
 			</form>
 			<!-- Find a hotel form -->
 			<!-- <form action="#" data-form="find_hotel" class="black" style="display:none;">
@@ -167,8 +171,40 @@ opacity: 0;
 	</section>
 	<div class="clearfix"></div>
 	<hr class="dashed grid_12" />
+
+
+<script>
+		 function getSer(word){
+
+							 $.ajaxSetup({
+											headers: {
+													'X-CSRF-TOKEN': '<?php echo csrf_token() ?>',
+															}
+							})
+									$.ajax({
+										 type:'POST',
+										 url:'/',
+										data:{'ucus_noqtesi': $('#search-input').val(),'olke': $('#search-input-olke').val(),
+													'start': $('#search-input-start').val(),
+													'days': $('#search-input-days').val(),
+													'price': $('#search-input-price').val()
+									 },
+
+										 success:function(data){
+											 $('#dongu').empty();
+												$.each(data.ser, function(index, value) {
+																$('#dongu').append('<tr><td id="flyPoint"><a href="/tours/'+value.latin+'" >'+value.flyPoint+'</a></td><td id="hotel">'+value.hotel+'</td>	<td id="start-end">'+value.start+'-'+value.end+'</td><td id="days">'+value.days+'</td><td id="price">'+value.price+'</td></tr>');
+												});
+										 }
+									});
+										return false;
+		 }
+</script>
+
+
 	<script>
 		function getSer(){
+
 
 			$.ajaxSetup({
 	headers: {
