@@ -21,8 +21,8 @@
 		@foreach($slide as $tourin)
 		<!-- First slide -->
 		<li style="display: block;">
-			<h2><a href="/tours/{{ $tourin->latin }}">The {{ $tourin->country }} Expedition from <strong>{{ $tourin->price }} AZN</strong></a></h2>
-			<p>{{ $tourin->about }}</p>
+			<h2><a href="/tours/{{ $tourin->latin }}">{{ $tourin->country }} test <strong>{{ $tourin->price }} AZN</strong></a></h2>
+			<p>{!! $tourin->about !!}</p>
 		</li>
 		@endforeach
 	</ul>
