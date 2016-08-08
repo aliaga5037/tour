@@ -55,7 +55,7 @@ class linksController extends Controller
           if(auth()->guard('')->user() or auth()->guard('company')->user() or auth()->guard('')->guest()){
 
             $tourindex = Tour::where('onoff' , 1)->orderBy('id', 'desc')->paginate(12);
-             $slide = Tour::orderBy('id', 'desc')->limit(5)->get();
+             $slide = Tour::orderBy('id', 'desc')->where('onoff' , 1)->limit(5)->get();
                             return view('dizayn.index', compact('tourindex' , 'slide'));
           }
 
@@ -129,6 +129,7 @@ class linksController extends Controller
                     $start = Input::get('start');
                     $days = Input::get('days');
                     $price = Input::get('price');
+                    $hotel = Input::get('hotel');
 
 
 
@@ -137,7 +138,7 @@ class linksController extends Controller
 
                           if($ucus){
 
-                            $uc = Tour::where('flyPoint', 'LIKE', "%$ucus%")->get();
+                            $uc = Tour::where('flyPoint', 'LIKE', "%$ucus%")->with('photos')->get();
 
 
                           }
@@ -150,7 +151,7 @@ class linksController extends Controller
 
                           if($start){
 
-                            $uc = Tour::where('start', 'LIKE', "%$start%")->get();
+                            $uc = Tour::where('start', 'LIKE', "%$start%")->with('photos')->get();
 
                           }
 
@@ -165,8 +166,18 @@ class linksController extends Controller
                             $uc = Tour::where('price', 'LIKE', "%$price%")->get();
 
                           }
+                          else if($hotel){
+
+                            $uc = Tour::where('hotel', 'LIKE', "%$hotel%")->with('photos')->get();
+
+                          }
                         //$ser = $ucus;
+
                         return response()->json(array('ser'=> $uc), 200);
+
+                        
+
+
 
 
 
