@@ -49,9 +49,9 @@
 <ul class="results_wide grid_8">
 
   
-{{--   @foreach ($tours as $tour) --}}
+  @foreach ($tours as $tour)
   
-  {{-- <li>
+  <li>
     <a href="/tours/{{ $tour->latin }}" class="thumb"><img src="
      @if (count($tour->photos) != 0)
       
@@ -78,10 +78,10 @@
       <span>All inclusive</span>
     </div>
     <br>
-    <p style="overflow:hidden;">{{ $tour->about }}</p>
+    <p style="overflow:hidden;">{!! $tour->about !!}</p>
   </li>
 
-  @endforeach --}}
+  @endforeach
   
 </ul>
 
@@ -112,7 +112,7 @@
   $.each(data.ser, function(index, value) {
         
     if(value.photos != 0){a = value.photos[0].file_path}else{a = "/dizayn/img/8.jpg"}
-    $('.results_wide').append('<li><a href="/tours/'+value.latin+' class="thumb"><img src="'+a+'" alt="" style="width:220px;height:100px;"></a><h3 id="flyPoint"><a href="/tours/'+value.latin+'" >'+value.hotel+'</a></h3><span class="price">'+value.price+'AZN</span><div><span><a href="/tours/'+value.latin+'">'+value.country+'</a></span><span class="stars"><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_half.png" alt="" /><img src="dizayn/img/star_empty.png" alt="" /></span><span>All inclusive</span></div><br><p style="overflow:hidden;">'+value.about+'</p></li>');
+    $('.results_wide').append('<li><a href="/tours/'+value.latin+'"" class="thumb"><span class="with_border"><span></span><img src="'+a+'" alt="" style="width:220px;height:100px;"></span></a><h3><a href="/tours/'+value.latin+'" >'+value.hotel+'</a></h3><span class="price">'+value.price+'AZN</span><div><span><a href="/tours/'+value.latin+'">'+value.country+'</a></span><span class="stars"><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_full.png" alt="" /><img src="dizayn/img/star_half.png" alt="" /><img src="dizayn/img/star_empty.png" alt="" /></span><span>All inclusive</span></div><br><p style="overflow:hidden;">'+value.about+'</p></li>');
 
 
 

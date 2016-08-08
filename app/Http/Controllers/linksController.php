@@ -145,7 +145,7 @@ class linksController extends Controller
 
                             if($olke){
 
-                            $uc = Tour::where('country', 'LIKE', "%$olke%")->get();
+                            $uc = Tour::where('country', 'LIKE', "%$olke%")->with('photos')->get();
 
                           }
 

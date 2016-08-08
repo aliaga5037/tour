@@ -25,8 +25,12 @@ class CreateToursTable extends Migration
             $table->integer('company_id')->unsigned()->index();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('latin');
-            $table->string('hotel');
             $table->integer('days');
+            $table->string('hotel');
+            $table->date('checkin');
+            $table->date('checkout');
+            $table->boolean('person');
+            $table->boolean('room');
             $table->timestamps();
         });
 

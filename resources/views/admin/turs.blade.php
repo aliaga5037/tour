@@ -26,6 +26,10 @@
             <th>Bitmə tarixi</th>
             <th>Ölkə</th>
             <th>Otel</th>
+            <th>Nəfər sayı</th>
+            <th>Otaq sayı</th>
+            <th>Giriş</th>
+            <th>Çıxış</th>
             <th>Uçuş nöqtəsi</th>
             <th>Qiymət</th>
             <th>Haqqında</th>
@@ -42,6 +46,10 @@
                 <td>{{ $tur->end }}</td>
                 <td>{{ $tur->country }}</td>
                 <td>{{ $tur->hotel }}</td>
+                <td>{{ $tur->person }}</td>
+                <td>{{ $tur->room }}</td>
+                <td>{{ $tur->checkin }}</td>
+                <td>{{ $tur->checkout }}</td>
                 <td>{{ $tur->flyPoint }}</td>
                 <td>{{ $tur->price }}</td>
                 <td>{{ $tur->about }}</td>

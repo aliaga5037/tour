@@ -86,10 +86,14 @@ class TourController extends Controller
               'country' => $request['country'],
               'price' => $request['price'],
               'flyPoint' => $request['flyPoint'],
+              'hotel' => $request['hotel'],
+              'checkin' => $request['checkin'],
+              'checkout' => $request['checkout'],
+              'person' => $request['person'],
+              'room' => $request['room'],
               'about' => $request['about'],
               'days' => $interval,
               'latin' => $latinad,
-              'hotel' => $request['hotel'],
 
             );
 

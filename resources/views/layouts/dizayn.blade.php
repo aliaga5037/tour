@@ -169,9 +169,9 @@
 	         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
 	         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
 	         filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}',
-	         extraPlugins: 'colorbutton,font,justify,codesnippet,smiley,iframe,print,scayt,templates,find,flash',
+	         extraPlugins: 'codesnippet,scayt,find',
 	         skin: 'kama',
-	         language: 'tr',
+	         language: 'en',
 	     });
 
 	 </script>

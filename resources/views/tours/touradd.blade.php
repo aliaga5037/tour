@@ -94,14 +94,46 @@ opacity: 0;
 		<label style="color:black;" for="hotel">Hotel</label>
 		<input type="text" id="hotel"  name="hotel" value="{{ old('hotel') }}" required>
 
-		<input type="hidden" nqme="_token" value="{{ csrf_token() }}">
+		<label style="color:black;" for="room">Otaq sayı</label>
+		<input type="text" id="room" maxlength="1" name="room" value="{{ old('room') }}" required>
+
+		<label style="color:black;" for="person">Nəfər sayı</label>
+		<input type="text" id="person" maxlength="1" name="person" value="{{ old('person') }}" required>
+
+		<label style="color:black;" for="checkin">Giriş</label>
+		<input type="text" class="date" id="dateci" value="{{ old('end') }}" required>
+		<input type="date" id="checkin"  name="checkin" value="{{ old('checkin') }}" required>
+
+		<script>
+          jQuery(document).ready(function($) {
+            $('#checkin').change(function(event) {
+              var a = $('#checkin').val();
+              $('#dateci').val(a);
+            });
+          });
+        </script>
+
+		<label style="color:black;" for="checkout">Çıxış</label>
+		<input type="text" class="date" id="dateco" value="{{ old('end') }}" required>
+		<input type="date" id="checkout"  name="checkout" value="{{ old('checkout') }}" required>
+
+		<script>
+          jQuery(document).ready(function($) {
+            $('#checkout').change(function(event) {
+              var a = $('#checkout').val();
+              $('#dateco').val(a);
+            });
+          });
+        </script>
+
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<label for="himage" class="lab">Şəkil seç</label>
-		<input type="file" id='himage' name="image" style="opacity: 0;">
+		<input type="file" id='himage' name="image" style="opacity: 0;" required>
 
 
 
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea  id="ckeditor1" class="miti" name="about" value="{{ old('about') }}" required></textarea>
+		<textarea  id="ckeditor1" class="miti" name="about"  required>{{ old('about') }}</textarea>
 
 		<input style="margin-top:50px; " type="submit" name="name" value="Tur əlavə et">
 	</form>

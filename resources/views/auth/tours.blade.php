@@ -32,6 +32,10 @@
 					<th>Uçuş nöqtəsi</th>
 					<th>Ölkə</th>
 					<th>Otel</th>
+					<th>Nəfər sayı</th>
+					<th>Otaq sayı</th>
+		            <th>Giriş</th>
+		            <th>Çıxış</th>
 					<th>Şəkillər</th>
 					<th>Qiymət</th>
 					<th>Tur haqqında</th>
@@ -52,9 +56,13 @@
 					<td>{{$tour->flyPoint}}</td>
 					<td>{{$tour->country}}</td>
 					<td>{{$tour->hotel}}</td>
+					<td>{{$tour->person}}</td>
+					<td>{{$tour->room}}</td>
+					<td>{{$tour->checkin}}</td>
+					<td>{{$tour->checkout}}</td>
 					<td><a href="{{ url("/$tour->id/images") }}"><span class="label label-primary">Şəkillər</span></a></td>
 					<td>{{$tour->price}}AZN</td>
-					<td>{{$tour->about}}</td>
+					<td>{!!$tour->about!!}</td>
 					<td>@if($tour->onoff == 0) <span class="label label-danger">Təsdiq Gözləyir</span> @endif</td>
 					<td>@if($tour->onoff == 1) <span class="label label-success">Təsdiqlənmiş</span> @endif</td>
 					<td><a href="{{ url("/$company->id/tours/$tour->id/edit") }}" class="btn btn-primary">Edit</a></td>

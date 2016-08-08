@@ -52,8 +52,20 @@ width: 50%;
 		<label style="color:black;" for="hotel">Hotel</label>
 		<input type="text" id="hotel"  name="hotel" value="{{ $tour->hotel }}" required>
 
+		<label style="color:black;" for="room">Otaq sayı</label>
+		<input type="text" id="room" maxlength="1" name="room" value="{{ $tour->room }}" required>
+
+		<label style="color:black;" for="person">Nəfər sayı</label>
+		<input type="text" id="person"  name="person" value="{{ $tour->person }}" required>
+
+		<label style="color:black;" for="checkin">Giriş</label>
+		<input type="date" id="checkin"  name="checkin" value="{{ $tour->checkin }}" required>
+
+		<label style="color:black;" for="checkout">Çıxış</label>
+		<input type="date" id="checkout"  name="checkout" value="{{ $tour->checkout }}" required>
+
 		<label style="color:black;" for="about">Tur haqqında</label>
-		<textarea id="ckeditor1"  name="about" value="" required>{{ $tour->about }}</textarea>
+		<textarea id="ckeditor1"  name="about" value="" required>{{  $tour->about }}</textarea>
 		
 		<label style="color:black;" for="price">Turun qiyməti</label>
 		<input type="number" id="price"  name="price" value="{{ $tour->price }}" required>
